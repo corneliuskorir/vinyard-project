@@ -1,0 +1,36 @@
+.summary {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.summary .title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0px;
+  color: var(--header);
+}
+.summary .title h1 {
+  margin: 0;
+}
+.summary .title p {
+  margin: 0;
+}
+.summary .content {
+  display: flex;
+  gap: 10px;
+  justify-content: stretch;
+  flex-wrap: wrap;
+}
+
+.summary .content .summaryBox {
+  margin: 0;
+  flex: 1;
+  background-color: rgb(247, 227, 227);
+  border: 2px solid rgb(244, 118, 118);
+  border-radius: 25px;
+  padding: 20px 20px;
+}

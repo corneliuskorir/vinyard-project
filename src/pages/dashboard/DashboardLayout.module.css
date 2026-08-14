@@ -1,6 +1,6 @@
 .dashboard {
   display: flex;
-  gap: 20px;
+  gap: 5px;
   min-height: 100dvh;
 }
 
@@ -58,6 +58,7 @@
 }
 .content {
   flex: 4;
+  margin: 10px 20px;
 }
 
 /* todo: (responsive design setup) */
