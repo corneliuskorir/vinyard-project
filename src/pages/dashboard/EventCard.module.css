@@ -1,0 +1,30 @@
+.eventCard {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 20px;
+  gap: 10px;
+  background-color: var(--bg);
+  border: 2px solid var(--sub-header);
+  border-radius: 10px;
+  min-width: 200px;
+  max-width: 300px;
+}
+.eventCard .buttons {
+  display: flex;
+  gap: 20px;
+  align-self: flex-end;
+  padding: 5px;
+  transition: 0.3s;
+}
+.eventCard .buttons div:hover {
+  align-self: flex-end;
+  font-weight: 500;
+  cursor: pointer;
+  color: var(--accent);
+}
+.eventCard h3 {
+  margin: 0;
+}
+.eventCard p {
+  margin: 0;
+}
