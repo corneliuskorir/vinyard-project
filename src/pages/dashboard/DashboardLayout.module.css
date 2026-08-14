@@ -17,7 +17,9 @@
   flex-direction: column;
   gap: 10px;
   border-bottom: 3px solid var(--main-bg);
+  cursor: pointer;
 }
+
 .navigation .header h1 {
   margin: 0;
 }
@@ -46,6 +48,8 @@
 .navigation .navLink.active {
   background-color: var(--sub-header);
   color: var(--header);
+  font-weight: 600;
+  font-size: 1.2rem;
 }
 
 .navigation div nav {

@@ -1,13 +1,15 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import styles from "./DashboardLayout.module.css";
 
 const linkStyle = ({ isActive }) =>
   ` ${styles.navLink} ${isActive ? styles.active : ""}`;
 function DashboardLayout() {
+  const navigate = useNavigate();
+
   return (
     <div className={styles.dashboard}>
       <div className={styles.navigation}>
-        <div className={styles.header}>
+        <div className={styles.header} onClick={() => navigate("/dashboard")}>
           <p>Ambrosia</p>
           <h1>Dashboard</h1>
         </div>
