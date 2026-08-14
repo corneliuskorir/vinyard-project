@@ -45,6 +45,7 @@
 
 .navigation .navLink.active {
   background-color: var(--sub-header);
+  color: var(--header);
 }
 
 .navigation div nav {
