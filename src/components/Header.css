@@ -9,7 +9,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--main);
+
+  background: linear-gradient(to right, white 5%, var(--main) 95%);
 }
 
 .nav-link {
@@ -20,8 +21,8 @@
 }
 
 .logo {
-  width: 60px;
-  height: 60px;
+  width: 90px;
+  height: 90px;
   margin-right: 10px;
 
   display: flex;
