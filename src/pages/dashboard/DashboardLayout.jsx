@@ -1,6 +1,8 @@
 import { NavLink, Outlet } from "react-router-dom";
 import styles from "./DashboardLayout.module.css";
 
+const linkStyle = ({ isActive }) =>
+  ` ${styles.navLink} ${isActive ? styles.active : ""}`;
 function DashboardLayout() {
   return (
     <div className={styles.dashboard}>
@@ -11,9 +13,15 @@ function DashboardLayout() {
         </div>
         <div>
           <nav>
-            <NavLink to="/dashboard/shop">Shop</NavLink>
-            <NavLink to="/dashboard/visits">Visits</NavLink>
-            <NavLink to="/dashboard/events">Events</NavLink>
+            <NavLink to="/dashboard/shop" className={linkStyle}>
+              Shop
+            </NavLink>
+            <NavLink to="/dashboard/visits" className={linkStyle}>
+              Visits
+            </NavLink>
+            <NavLink to="/dashboard/events" className={linkStyle}>
+              Events
+            </NavLink>
           </nav>
         </div>
       </div>
