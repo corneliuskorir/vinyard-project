@@ -22,6 +22,7 @@ function App() {
             <Route path="events" element={<DashboardEvents />}>
               <Route index element={<DashboardEventsList />} />
               <Route path="new" element={<NewEvent />} />
+              <Route path=":eventId" element={<NewEvent />} />
             </Route>
           </Route>
         </Routes>
