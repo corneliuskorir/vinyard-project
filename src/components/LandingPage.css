@@ -1,0 +1,39 @@
+.page {
+  margin: 0 auto;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bg-video {
+  position: relative; /* stays behind everything */
+  width: 100%; /* fill screen */
+  height: 100%;
+  left: 0;
+  top: 0;
+  object-fit: cover; /* cover the entire screen */
+  z-index: -2; /* behind everything */
+  transition: opacity 1s; /* fade transition */
+}
+.fade-out {
+  opacity: 0;
+}
+.fade-in {
+  opacity: 1;
+}
+
+.content {
+  position: absolute;
+  z-index: 2;
+  color: white;
+  text-align: center;
+  padding-top: 40vh;
+  font-size: 30px;
+  color: white;
+  margin: 0;
+  font-weight: normal;
+  font-style: italic;
+  font-family: "Brush Script MT", cursive;
+}
