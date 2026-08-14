@@ -1,7 +1,14 @@
+import styles from "./DashboardEvents.module.css";
+
 function DashboardEvents() {
   return (
-    <div>
-      <h1> Events go here bruh!</h1>
+    <div className={styles.events}>
+      <div className={styles.header}>
+        <h1>Events</h1>
+        <div className={styles.newEvent} onClick={() => {}}>
+          New Event
+        </div>
+      </div>
     </div>
   );
 }
