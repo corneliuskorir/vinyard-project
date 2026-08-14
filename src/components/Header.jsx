@@ -1,0 +1,28 @@
+import React from "react";
+import { NavLink } from "react-router";
+import "./Header.css";
+import logo from "../assets/coffeelogo.png"; // Adjust the path to your logo image
+
+function Header() {
+  return (
+    <nav className="navbar">
+      <div className="logo">
+        <img src={logo} alt="Logo" />
+        <h1>Bean Boree</h1>
+      </div>
+      <div>
+        <NavLink to="/" className="nav-link">
+          Home
+        </NavLink>
+        <NavLink to="/about" className="nav-link">
+          About
+        </NavLink>
+        <NavLink to="/contact" className="nav-link">
+          Contact
+        </NavLink>
+      </div>
+    </nav>
+  );
+}
+
+export default Header;
