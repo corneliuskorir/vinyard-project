@@ -1,9 +1,19 @@
 import { useState } from "react";
 
 import "./App.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import DashboardLayout from "./pages/dashboard/DashboardLayout";
 
 function App() {
-  return <></>;
+  return (
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/dashboard" element={<DashboardLayout />}></Route>
+        </Routes>
+      </BrowserRouter>
+    </>
+  );
 }
 
 export default App;
