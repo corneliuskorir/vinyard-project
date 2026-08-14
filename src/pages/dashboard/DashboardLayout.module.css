@@ -8,7 +8,6 @@
 .navigation {
   background-color: var(--header);
   flex: 1;
-  flex-grow: 1;
 }
 
 .navigation .header {

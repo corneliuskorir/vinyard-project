@@ -7,6 +7,8 @@ import DashboardSummary from "./pages/dashboard/DashboardSummary";
 import DashboardShop from "./pages/dashboard/DashboardShop";
 import DashboardEvents from "./pages/dashboard/DashboardEvents";
 import DashboardVisits from "./pages/dashboard/DashboardVisits";
+import DashboardEventsList from "./pages/dashboard/DashboardEventsList";
+import NewEvent from "./pages/dashboard/NewEvent";
 
 function App() {
   return (
@@ -16,8 +18,11 @@ function App() {
           <Route path="/dashboard" element={<DashboardLayout />}>
             <Route index element={<DashboardSummary />} />
             <Route path="Shop" element={<DashboardShop />}></Route>
-            <Route path="events" element={<DashboardEvents />}></Route>
             <Route path="visits" element={<DashboardVisits />}></Route>
+            <Route path="events" element={<DashboardEvents />}>
+              <Route index element={<DashboardEventsList />} />
+              <Route path="new" element={<NewEvent />} />
+            </Route>
           </Route>
         </Routes>
       </BrowserRouter>
