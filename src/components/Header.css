@@ -1,3 +1,5 @@
+@import url("index.css");
+
 .navbar {
   width: 100%;
   position: relative;
@@ -7,7 +9,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(to right, white 5%, #6f4e37 95%);
+  background-color: var(--main);
 }
 
 .nav-link {

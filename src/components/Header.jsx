@@ -1,7 +1,7 @@
 import React from "react";
-import { NavLink } from "react-router";
+import { NavLink } from "react-router-dom";
 import "./Header.css";
-import logo from "../assets/coffeelogo.png"; // Adjust the path to your logo image
+//import logo from "../assets/coffeelogo.png"; // Adjust the path to your logo image
 
 function Header() {
   return (
@@ -17,8 +17,8 @@ function Header() {
         <NavLink to="/about" className="nav-link">
           About
         </NavLink>
-        <NavLink to="/contact" className="nav-link">
-          Contact
+        <NavLink to="/shop" className="nav-link">
+          Shop
         </NavLink>
       </div>
     </nav>
