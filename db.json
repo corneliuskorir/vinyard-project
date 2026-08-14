@@ -1,0 +1,12 @@
+{
+  "users": [],
+  "store": {
+    "products": {
+      "wines": [],
+      "cheeses": []
+    },
+    "orders": []
+  },
+  "visits": [],
+  "events": []
+}
