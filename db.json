@@ -2,8 +2,58 @@
   "users": [],
   "store": {
     "products": {
-      "wines": [],
-      "cheeses": []
+      "wines": [
+        {
+          "id": 1,
+          "name": "Cabernet",
+          "price": 20,
+          "image": "https://cdn.prod.website-files.com/66046fe6dc39fafe5e90d16a/679f91a26fc515e0dac5e874_Cabernet-Sauvignon-Comparison.webp"
+        },
+        {
+          "id": 2,
+          "name": "Merlot",
+          "price": 15,
+          "image": "https://chizay.com/wp-content/uploads/2018/08/Merlot_2019-3.jpg"
+        },
+        {
+          "id": 3,
+          "name": "Shiraz",
+          "price": 18,
+          "image": "https://edenvale.com.au/cdn/shop/articles/Australian_Shiraz_and_Food_Pairing.webp?v=1707318563&width=1100"
+        },
+        {
+          "id": 4,
+          "name": "Chardonnay",
+          "price": 16,
+          "image": "https://images.commerce7.com/jordan-vineyard-and-winery/images/x-large/jordan_detail_2022_chardonnay_stem_oysters-1717097658707.png"
+        }
+      ],
+      "cheeses": [
+        {
+          "id": 5,
+          "name": "Cheddar",
+          "price": 10,
+          "image": "https://upload.wikimedia.org/wikipedia/commons/b/bf/White_cheddar_cheese.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"
+        },
+        {
+          "id": 6,
+          "name": "Brie",
+          "price": 12,
+          "image": "https://substackcdn.com/image/fetch/$s_!JFZP!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F8583fc54-9859-4476-bcbd-ad53b71f90ee_1600x1064.jpeg"
+        },
+        {
+          "id": 7,
+          "name": "Gouda",
+          "price": 14,
+          "image": "https://cdn2.bigcommerce.com/server5900/ohhf8/product_images/uploaded_images/gouda.jpg"
+        },
+        {
+          "id": 8,
+          "name": "Parmesan",
+          "price": 13,
+          "image": "https://cdn.smithbrothersfarms.com/media/0011332_belgioioso-parmesan-cheese-wedge-8-oz.jpeg"
+        }
+      ]
     },
     "orders": []
   },
