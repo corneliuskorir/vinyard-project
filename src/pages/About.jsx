@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 import "../components/About.css";
 
 const images = [
-  "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg",
-  "https://images.pexels.com/photos/296195/pexels-photo-296195.jpeg",
-  "https://images.pexels.com/photos/39511/vineyard-wine-grapes-napa-valley-39511.jpeg",
-  "https://images.pexels.com/photos/39512/vineyard-wine-grapes-napa-valley-39512.jpeg",
+  "https://images.unsplash.com/photo-1596142332133-327e2a0ff006?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8dmlueWFyZHxlbnwwfHwwfHx8MA%3D%3D",
+  "https://images.unsplash.com/photo-1537640538966-79f369143f8f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8dmlueWFyZHxlbnwwfHwwfHx8MA%3D%3D",
+  "https://images.unsplash.com/photo-1726741827090-0b5a52b45686?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzJ8fHZpbnlhcmR8ZW58MHx8MHx8fDA%3D",
+  "https://plus.unsplash.com/premium_photo-1663045589439-856e650d7637?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjl8fHZpbnlhcmR8ZW58MHx8MHx8fDA%3D",
+  "https://images.unsplash.com/photo-1643087448435-72f70bd4ce88?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDd8fHZpbnlhcmR8ZW58MHx8MHx8fDA%3D",
 ];
 
 function AboutPage() {
