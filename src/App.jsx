@@ -8,7 +8,7 @@ import DashboardShop from "./pages/dashboard/DashboardShop";
 import DashboardEvents from "./pages/dashboard/DashboardEvents";
 import DashboardVisits from "./pages/dashboard/DashboardVisits";
 import DashboardEventsList from "./pages/dashboard/DashboardEventsList";
-import NewEvent from "./pages/dashboard/NewEvent";
+import EventForm from "./pages/dashboard/EventForm";
 
 function App() {
   return (
@@ -21,8 +21,8 @@ function App() {
             <Route path="visits" element={<DashboardVisits />}></Route>
             <Route path="events" element={<DashboardEvents />}>
               <Route index element={<DashboardEventsList />} />
-              <Route path="new" element={<NewEvent />} />
-              <Route path=":eventId" element={<NewEvent />} />
+              <Route path="new" element={<EventForm />} />
+              <Route path=":eventId" element={<EventForm />} />
             </Route>
           </Route>
         </Routes>
