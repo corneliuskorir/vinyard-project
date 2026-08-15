@@ -4,11 +4,7 @@ import MainLayout from "./pages/MainLayout";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import LandingPage from "./pages/LandingPage";
-<<<<<<< HEAD
-
 import About from "./pages/About";
-import "./App.css";
-=======
 import "./App.css";
 import DashboardLayout from "./pages/dashboard/DashboardLayout";
 import DashboardSummary from "./pages/dashboard/DashboardSummary";
@@ -17,7 +13,6 @@ import DashboardEvents from "./pages/dashboard/DashboardEvents";
 import DashboardVisits from "./pages/dashboard/DashboardVisits";
 import DashboardEventsList from "./pages/dashboard/DashboardEventsList";
 import EventForm from "./pages/dashboard/EventForm";
->>>>>>> 7ae126b (about.css)
 
 function App() {
   return (
