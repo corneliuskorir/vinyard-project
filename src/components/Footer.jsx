@@ -8,7 +8,7 @@ function Footer() {
         <p>&copy; 2026 Your Company. All rights reserved.</p>
       </div>
       <div className="footer-right">
-        <p>📧 Email: info@suncrestvalley.com | 📞 Phone: +254 70* *** *56</p>
+        <p>📧 Email: info@suncrestvalley.com | 📞 Phone: +254 702 485 756</p>
       </div>
     </footer>
   );
