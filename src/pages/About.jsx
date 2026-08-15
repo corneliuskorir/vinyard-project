@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-function About() {
-  return <h1>This is the about section</h1>;
-}
-
-export default About;
-=======
 import React, { useState, useEffect } from "react";
 import "../components/About.css";
 
@@ -58,4 +51,3 @@ function AboutPage() {
 }
 
 export default AboutPage;
->>>>>>> 7ae126b (about.css)
