@@ -1,4 +1,8 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import LandingPage from "./pages/LandingPage";
 
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -12,22 +16,15 @@ import EventForm from "./pages/dashboard/EventForm";
 
 function App() {
   return (
-    <>
-      <BrowserRouter>
+    <Router>
+      <Header />
+      <main>
         <Routes>
-          <Route path="/dashboard" element={<DashboardLayout />}>
-            <Route index element={<DashboardSummary />} />
-            <Route path="Shop" element={<DashboardShop />}></Route>
-            <Route path="visits" element={<DashboardVisits />}></Route>
-            <Route path="events" element={<DashboardEvents />}>
-              <Route index element={<DashboardEventsList />} />
-              <Route path="new" element={<EventForm />} />
-              <Route path=":eventId" element={<EventForm />} />
-            </Route>
-          </Route>
+          <Route path="/" element={<LandingPage />} />
         </Routes>
-      </BrowserRouter>
-    </>
+      </main>
+      <Footer />
+    </Router>
   );
 }
 
