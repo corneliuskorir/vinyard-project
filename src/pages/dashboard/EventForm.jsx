@@ -3,18 +3,20 @@ import FormInput from "../../components/FormInput";
 import useFormData from "../../hooks/useFormData";
 import { useParams } from "react-router-dom";
 import FormButton from "../../components/FormButton";
+import styles from "./EventForm.module.css";
 
 function EventForm() {
   const { eventId } = useParams();
 
   console.log(eventId);
 
-  const defaultData = { title: "", description: "", imageUrl: "" };
+  const defaultData = { title: "", description: "", imageUrl: "", date: "" };
   const errorObj = { title: false, description: false, image: false };
 
   const titleRef = useRef();
   const descriptionRef = useRef();
   const imageUrlRef = useRef();
+  const dateRef = useRef();
 
   const [error, formData, handleFormChange] = useFormData({
     defaultData: defaultData,
@@ -27,8 +29,9 @@ function EventForm() {
   }
 
   return (
-    <div>
+    <div className={styles.eventForm}>
       <form onSubmit={handleSubmit}>
+        <h2>{eventId ? "Edit Event" : "New Event"}</h2>
         <FormInput
           lable={"Title"}
           name={"title"}
@@ -59,6 +62,15 @@ function EventForm() {
           onChange={handleFormChange}
         />
 
+        <FormInput
+          lable={"Date"}
+          name={"date"}
+          value={formData.date}
+          error={error.date}
+          inputRef={dateRef}
+          onChange={handleFormChange}
+        />
+
         <FormButton title={eventId ? "Save" : "Done"} />
       </form>
     </div>
@@ -66,3 +78,5 @@ function EventForm() {
 }
 
 export default EventForm;
+
+//todo: (plugin data when in edit mode)

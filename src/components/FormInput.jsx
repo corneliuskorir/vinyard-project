@@ -13,6 +13,8 @@ function FormInput({
   const id = useId();
   const isDescription = lable === "Description";
 
+  const isDate = lable === "Date";
+
   function handleChange(e) {
     onChange({ name: name, input: e.target.value });
   }
@@ -32,7 +34,7 @@ function FormInput({
           name={name}
           ref={inputRef}
           value={value}
-          type="text"
+          type={isDate ? "datetime-local" : "text"}
           id={id}
           placeholder={placeholder}
           onChange={handleChange}

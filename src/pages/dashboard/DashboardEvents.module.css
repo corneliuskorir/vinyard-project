@@ -28,3 +28,9 @@
   border: 1px solid var(--accent);
   font-weight: 600;
 }
+
+.content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
