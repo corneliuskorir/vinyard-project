@@ -1,10 +1,13 @@
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import styles from "./DashboardEvents.module.css";
+import { useEvents } from "../../providers/EventsProvider";
 
 function DashboardEvents() {
   const navigate = useNavigate();
   const location = useLocation();
   const isNewEventPage = location.pathname === "/dashboard/events/new";
+
+  const { eventState } = useEvents();
 
   const handleClick = () =>
     !isNewEventPage
@@ -21,7 +24,7 @@ function DashboardEvents() {
         </div>
       </div>
       <div className={styles.content}>
-        <Outlet />
+        <Outlet context={eventState} />
       </div>
     </div>
   );
