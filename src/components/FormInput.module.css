@@ -1,0 +1,49 @@
+.formInput {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.formInput label {
+  font-size: 1.1rem;
+}
+
+.formInput input {
+  padding: 10px 10px;
+  background-color: var(--bg);
+  font-size: 1.1rem;
+  color: var(--text-h);
+  border: none;
+  border-radius: 10px;
+}
+
+.formInput input:focus {
+  outline: none;
+  border: 2px solid var(--header);
+}
+
+.formInput.error input {
+  border: 2px solid red;
+}
+.formInput textarea {
+  padding: 10px 10px;
+  resize: none;
+  background-color: var(--bg);
+  font-size: 1.1rem;
+  color: var(--text-h);
+  border: none;
+  border-radius: 10px;
+}
+
+.formInput textarea:focus {
+  outline: none;
+  border: 2px solid var(--header);
+}
+
+.formInput.error textarea {
+  border: 2px solid red;
+}
+
+.formInput.error i {
+  color: red;
+}

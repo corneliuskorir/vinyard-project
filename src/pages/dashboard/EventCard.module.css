@@ -1,0 +1,48 @@
+.eventCard {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 20px;
+  gap: 10px;
+  background-color: var(--bg);
+  border: 2px solid var(--sub-header);
+  border-radius: 10px;
+  min-width: 200px;
+  max-width: 300px;
+  transition: 0.3;
+}
+.eventCard:hover {
+  border: 3px solid var(--header);
+  background-color: var(--code-bg);
+  cursor: pointer;
+}
+.eventCard .buttons {
+  display: flex;
+  gap: 20px;
+  align-self: flex-end;
+  padding: 5px;
+  transition: 0.3s;
+}
+.eventCard .buttons div {
+  padding: 5px;
+}
+.eventCard .buttons div:hover {
+  align-self: flex-end;
+  font-weight: 500;
+  cursor: pointer;
+  color: var(--accent);
+}
+.eventCard .buttons .delete {
+  transition: 0.3s;
+  border-radius: 5px;
+}
+
+.eventCard .buttons .delete:hover {
+  background-color: rgb(237, 6, 6);
+  color: var(--main-bg);
+}
+.eventCard h3 {
+  margin: 0;
+}
+.eventCard p {
+  margin: 0;
+}

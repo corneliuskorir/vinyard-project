@@ -1,0 +1,64 @@
+.dashboard {
+  display: flex;
+  gap: 5px;
+  min-height: 100dvh;
+  background-color: var(--main-bg);
+}
+
+.navigation {
+  background-color: var(--header);
+  flex: 1;
+}
+
+.navigation .header {
+  color: var(--main-bg);
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-bottom: 3px solid var(--main-bg);
+  cursor: pointer;
+}
+
+.navigation .header h1 {
+  margin: 0;
+}
+.navigation .header p {
+  margin: 0;
+}
+
+.navigation .navLink {
+  all: unset;
+  color: var(--main-bg);
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: center;
+  padding: 10px;
+  transition: 0.3s;
+}
+
+.navigation .navLink:hover {
+  cursor: pointer;
+  color: var(--header);
+  font-size: 1.3rem;
+  background-color: var(--sub-header);
+  border-bottom: 3px solid var(--main-bg);
+}
+
+.navigation .navLink.active {
+  background-color: var(--sub-header);
+  color: var(--header);
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.navigation div nav {
+  display: flex;
+  flex-direction: column;
+}
+.content {
+  flex: 4;
+  margin: 10px 20px;
+}
+
+/* todo: (responsive design setup) */
