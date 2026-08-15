@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 function useFormData({ defaultData, focusRef, errorObj }) {
   const [error, setError] = useState(errorObj);
@@ -13,7 +14,7 @@ function useFormData({ defaultData, focusRef, errorObj }) {
     focusRef.current.focus();
   }, []);
 
-  return { error, formData, handleFormChange };
+  return [error, formData, handleFormChange];
 }
 
 export default useFormData;

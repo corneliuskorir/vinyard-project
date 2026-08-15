@@ -1,15 +1,22 @@
 import { useRef, useState } from "react";
 import FormInput from "../../components/FormInput";
 import useFormData from "../../hooks/useFormData";
+import { useParams } from "react-router-dom";
+import FormButton from "../../components/FormButton";
 
 function EventForm() {
+  const { eventId } = useParams();
+
+  console.log(eventId);
+
   const defaultData = { title: "", description: "", imageUrl: "" };
   const errorObj = { title: false, description: false, image: false };
+
   const titleRef = useRef();
   const descriptionRef = useRef();
   const imageUrlRef = useRef();
 
-  const { error, formData, handleFormChange } = useFormData({
+  const [error, formData, handleFormChange] = useFormData({
     defaultData: defaultData,
     focusRef: titleRef,
     errorObj: errorObj,
@@ -52,7 +59,7 @@ function EventForm() {
           onChange={handleFormChange}
         />
 
-        <button>Create</button>
+        <FormButton title={eventId ? "Save" : "Done"} />
       </form>
     </div>
   );
