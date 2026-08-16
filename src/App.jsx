@@ -15,6 +15,7 @@ import About from "./pages/About";
 import Shop from "./pages/Shop";
 
 import "./App.css";
+import BookVisitForm from "./pages/BookVisitForm";
 import VisitsList from "./pages/dashboard/VisitsList";
 import Events from "./pages/Events";
 function App() {
@@ -47,6 +48,7 @@ function App() {
               <Shop products={products} setShoppingCart={setShoppingCart} />
             }
           />
+          <Route path="/book-visit" element={<BookVisitForm />} />
         </Route>
         <Route path="/dashboard" element={<DashboardLayout />}>
           <Route index element={<DashboardSummary />} />
