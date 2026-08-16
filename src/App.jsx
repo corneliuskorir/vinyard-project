@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import LandingPage from "./pages/LandingPage";
 import Shop from "./pages/Shop";
+import Cart from "./components/Cart";
 
 import "./App.css";
 
@@ -33,9 +34,14 @@ function App() {
           <Route
             path="/shop"
             element={
-              <Shop products={products} setShoppingCart={setShoppingCart} />
+              <Shop
+                products={products}
+                setShoppingCart={setShoppingCart}
+                shoppingCart={shoppingCart}
+              />
             }
           />
+          <Route path="/cart" element={<Cart shoppingCart={shoppingCart} />} />
         </Routes>
       </main>
       <Footer />

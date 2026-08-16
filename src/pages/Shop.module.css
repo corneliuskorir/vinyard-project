@@ -1,0 +1,42 @@
+.shopHeader {
+  text-align: center;
+  margin: 30px 0 40px;
+}
+
+.shopHeader h1,
+h2 {
+  margin-bottom: 10px;
+}
+
+.shopHeader p {
+  margin: 0;
+}
+
+.shopControls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0 30px;
+}
+
+/*.category {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+} */
+
+.cartLink {
+  color: white;
+  background-color: #5f7358;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+}
+
+.cartLink img {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  top: 5px;
+}
