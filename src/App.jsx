@@ -53,7 +53,16 @@ function App() {
               />
             }
           />
-          <Route path="cart" element={<Cart shoppingCart={shoppingCart} />} />
+
+          <Route
+            path="cart"
+            element={
+              <Cart
+                shoppingCart={shoppingCart}
+                setShoppingCart={setShoppingCart}
+              />
+            }
+          />
           <Route path="/book-visit" element={<BookVisitForm />} />
         </Route>
         <Route path="/dashboard" element={<DashboardLayout />}>
