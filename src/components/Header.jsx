@@ -20,6 +20,9 @@ function Header() {
         <NavLink to="/shop" className="nav-link">
           Shop
         </NavLink>
+        <NavLink to="/events" className="nav-link">
+          Events
+        </NavLink>
       </div>
     </nav>
   );

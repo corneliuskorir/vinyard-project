@@ -1,7 +1,12 @@
+import { Outlet } from "react-router-dom";
+
 function DashboardVisits() {
   return (
     <div>
-      <h1> Visits go here bruh!</h1>
+      <h1> Visits</h1>
+      <div>
+        <Outlet />
+      </div>
     </div>
   );
 }
