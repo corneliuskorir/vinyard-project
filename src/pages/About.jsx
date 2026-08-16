@@ -43,6 +43,7 @@ function AboutPage() {
         </p>
         <div className="about-buttons">
           <button onClick={() => navigate("/shop")}>Visit Shop</button>
+          <button onClick={() => navigate("/events")}>View Events</button>
           <button onClick={() => navigate("/book-visit")}>Book a Visit</button>
         </div>
       </div>
