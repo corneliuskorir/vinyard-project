@@ -15,7 +15,7 @@ function EventsList() {
 
   const dateSorted = data.sort((a, b) => new Date(a.date) - new Date(b.date));
 
-  return [].length ? (
+  return dateSorted.length ? (
     <div className={styles.eventsList}>
       {dateSorted.map((item) => (
         <EventCard event={item} />
