@@ -9,6 +9,7 @@ function EventCard({ event }) {
 
   const navigate = useNavigate();
 
+  console.log("Date problem", new Date(event.date));
   const date = format(new Date(event.date), "LLL io y K:mm bbb");
 
   const { deleteEvent } = useEvents();

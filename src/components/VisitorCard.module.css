@@ -1,0 +1,46 @@
+.visitorCard {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 5px;
+  background-color: var(--bg);
+  border-radius: 10px;
+  padding: 20px 10px;
+  min-width: 250px;
+}
+
+.infoItem {
+  display: flex;
+  flex-direction: column;
+}
+.infoItem h4 {
+  margin: 0;
+  font-size: 0.6rem;
+}
+.infoItem p {
+  margin: 0;
+  padding: 5px;
+  width: inherit;
+  background-color: var(--border);
+  border-radius: 10px;
+}
+.actions {
+  background-color: var(--bg);
+  display: flex;
+  justify-content: center;
+  transition: 0.5s;
+  color: red;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+.actions p {
+  margin: 0;
+  font-weight: 400;
+  text-align: end;
+}
+.actions:hover {
+  cursor: pointer;
+  color: white;
+  background-color: red;
+}

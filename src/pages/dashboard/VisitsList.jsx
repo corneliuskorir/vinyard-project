@@ -1,3 +1,4 @@
+import VisitorCard from "../../components/VisitorCard";
 import { useVisits } from "../../providers/VisitsProvider";
 import styles from "./VisitsList.module.css";
 
@@ -15,7 +16,7 @@ function VisitsList() {
   return dateSorted.length ? (
     <div className={styles.visitsList}>
       {dateSorted.map((item) => (
-        <div> {item.name}</div>
+        <VisitorCard visitor={item} />
       ))}
     </div>
   ) : (

@@ -1,5 +1,7 @@
 .visitsList {
   display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .noData {
