@@ -70,7 +70,7 @@ function App() {
           <Route
             path="Shop"
             element={
-              <DashboardShop products={products} setProductsm={setProducts} />
+              <DashboardShop products={products} setProducts={setProducts} />
             }
           ></Route>
           <Route path="visits" element={<DashboardVisits />}>

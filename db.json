@@ -5,7 +5,7 @@
       {
         "id": 1,
         "name": "Cabernet",
-        "price": 20,
+        "price": 2500,
         "image": "https://cdn.prod.website-files.com/66046fe6dc39fafe5e90d16a/679f91a26fc515e0dac5e874_Cabernet-Sauvignon-Comparison.webp"
       },
       {
@@ -54,7 +54,6 @@
       }
     ]
   },
-
   "visits": [
     {
       "name": "Cornelius korir",
@@ -85,7 +84,6 @@
       "id": "kXQ7AQIGTg8"
     }
   ],
-
   "orders": [
     {
       "items": [

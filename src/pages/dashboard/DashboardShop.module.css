@@ -1,0 +1,182 @@
+.dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 30px;
+}
+
+.heading {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.heading h1 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+.heading p {
+  color: #666;
+}
+
+.addSection {
+  background: #f7f7f7;
+  padding: 30px;
+  border-radius: 12px;
+  margin-bottom: 45px;
+}
+
+.addSection h2 {
+  margin-bottom: 25px;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.inputGroup label {
+  font-weight: 600;
+}
+
+.inputGroup input,
+.inputGroup select {
+  padding: 11px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  background: white;
+}
+
+.inputGroup input:focus,
+.inputGroup select:focus {
+  outline: none;
+  border-color: #777;
+}
+
+.addButton {
+  grid-column: 1 / -1;
+  justify-self: start;
+  padding: 11px 22px;
+  border: none;
+  border-radius: 6px;
+  background: #333;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.addButton:hover {
+  background: #555;
+}
+
+.productSection {
+  margin-bottom: 45px;
+}
+
+.productSection h2 {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.productCard {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.productImage {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  border-radius: 7px;
+  margin-bottom: 15px;
+}
+
+.productName {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.price {
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+.editArea {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.priceInput {
+  width: 90px;
+  padding: 8px;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+}
+
+.editButton,
+.saveButton {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.editButton {
+  background: black;
+}
+
+.editButton:hover {
+  background: #ddd;
+}
+
+.saveButton {
+  background: #333;
+  color: white;
+}
+
+.saveButton:hover {
+  background: #555;
+}
+
+@media (max-width: 900px) {
+  .productGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .dashboard {
+    padding: 25px 15px;
+  }
+
+  .form {
+    grid-template-columns: 1fr;
+  }
+
+  .productGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .addSection {
+    padding: 20px;
+  }
+}
