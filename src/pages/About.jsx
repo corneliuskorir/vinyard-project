@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../components/About.css";
+import { useNavigate } from "react-router-dom";
 
 const images = [
   "https://images.unsplash.com/photo-1596142332133-327e2a0ff006?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8dmlueWFyZHxlbnwwfHwwfHx8MA%3D%3D",
@@ -10,6 +11,7 @@ const images = [
 ];
 
 function AboutPage() {
+  const navigate = useNavigate();
   const [index, setIndex] = useState(0);
   const [fade, setFade] = useState(false);
 
@@ -39,6 +41,10 @@ function AboutPage() {
           to experience the timeless beauty of our vineyard and the wines born
           from it.
         </p>
+        <div className="about-buttons">
+          <button onClick={() => navigate("/shop")}>Visit Shop</button>
+          <button onClick={() => navigate("/book-visit")}>Book a Visit</button>
+        </div>
       </div>
       <div className="about-image">
         <img

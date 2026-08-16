@@ -36,3 +36,24 @@
 .fade-out {
   opacity: 0;
 }
+
+.about-buttons {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.about-buttons button {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  background-color: var(--main);
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.about-buttons button:hover {
+  background-color: #444; /* darker hover */
+}
