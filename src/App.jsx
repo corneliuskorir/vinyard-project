@@ -13,6 +13,7 @@ import DashboardEventsList from "./pages/dashboard/DashboardEventsList";
 import EventForm from "./components/EventForm";
 import About from "./pages/About";
 import Shop from "./pages/Shop";
+import Cart from "./components/Cart";
 
 import "./App.css";
 import BookVisitForm from "./components/BookVisitForm";
@@ -45,9 +46,14 @@ function App() {
           <Route
             path="/shop"
             element={
-              <Shop products={products} setShoppingCart={setShoppingCart} />
+              <Shop
+                products={products}
+                setShoppingCart={setShoppingCart}
+                shoppingCart={shoppingCart}
+              />
             }
           />
+          <Route path="cart" element={<Cart shoppingCart={shoppingCart} />} />
           <Route path="/book-visit" element={<BookVisitForm />} />
         </Route>
         <Route path="/dashboard" element={<DashboardLayout />}>

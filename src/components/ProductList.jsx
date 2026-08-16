@@ -1,3 +1,4 @@
+import styles from "./ProductList.module.css";
 import ProductCard from "./ProductCard";
 
 function ProductList({ category, products, setShoppingCart }) {
@@ -13,15 +14,15 @@ function ProductList({ category, products, setShoppingCart }) {
   console.log("PRODUCTSTODISPLAY:", ProductsToDisplay);
   return (
     <>
-      <h2>Available Products</h2>
-
-      {ProductsToDisplay.map((product) => (
-        <ProductCard
-          key={product.id}
-          product={product}
-          setShoppingCart={setShoppingCart}
-        />
-      ))}
+      <div className={styles.grid}>
+        {ProductsToDisplay.map((product) => (
+          <ProductCard
+            key={product.id}
+            product={product}
+            setShoppingCart={setShoppingCart}
+          />
+        ))}
+      </div>
     </>
   );
 }
