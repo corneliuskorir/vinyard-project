@@ -10,17 +10,21 @@ function EventForm() {
   const { eventId } = useParams();
   /*   console.log(eventId);
    */
-  const { addEvents } = useEvents();
+  const { addEvents, editEvent } = useEvents();
 
   const { loading, data, error } = useOutletContext();
 
-  const defaultData = { title: "", description: "", imageUrl: "", date: "" };
+  let defaultData = { title: "", description: "", imageUrl: "", date: "" };
   const errorObj = {
     title: false,
     description: false,
     imageUrl: false,
     date: false,
   };
+
+  if (eventId) {
+    defaultData = data.find((item) => item.id === eventId);
+  }
 
   const titleRef = useRef();
   const descriptionRef = useRef();
@@ -44,6 +48,10 @@ function EventForm() {
         setFormError((prev) => ({ ...prev, [key]: true }));
         return;
       }
+    }
+    if (eventId) {
+      editEvent(formData);
+      return;
     }
     addEvents(formData);
   }

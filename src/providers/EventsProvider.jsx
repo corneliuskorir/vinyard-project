@@ -65,18 +65,47 @@ function EventsProvider({ children }) {
         return res.json();
       })
       .then((data) => {
-        (eventsDispatch({
+        eventsDispatch({
           type: "FETCH_SUCCESS",
           payload: [...eventState.data, data],
-        }),
-          navigate("/dashboard/events"));
+        });
+        navigate("/dashboard/events");
       })
       .catch((error) =>
         eventsDispatch({ type: "FETCH_ERROR", payload: error.message }),
       );
   }
 
-  const value = { eventState, addEvents };
+  function editEvent(event) {
+    eventsDispatch({ type: "FETCH_INIT", payload: true });
+
+    fetch(`http://localhost:3001/events/${event.id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(event),
+    })
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`Failed to update event: ${res.status}`);
+        }
+        return res.json();
+      })
+      .then((data) => {
+        const edited = eventState.data.map((evnt) =>
+          evnt.id === event.id ? data : evnt,
+        );
+        eventsDispatch({
+          type: "FETCH_SUCCESS",
+          payload: edited,
+        });
+        navigate("/dashboard/events");
+      })
+      .catch((error) =>
+        eventsDispatch({ type: "FETCH_ERROR", payload: error.message }),
+      );
+  }
+
+  const value = { eventState, addEvents, editEvent };
   return (
     <EventsContext.Provider value={value}>{children}</EventsContext.Provider>
   );
