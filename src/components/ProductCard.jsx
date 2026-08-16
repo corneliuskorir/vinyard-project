@@ -11,7 +11,7 @@ function ProductCard({ product, setShoppingCart, shoppingCart }) {
 
       <div className={styles.content}>
         <h3 className={styles.name}>{product.name}</h3>
-        <p className={styles.price}>Price: {product.price}</p>
+        <p className={styles.price}>Price:${product.price}</p>
 
         <button
           className={styles.button}
