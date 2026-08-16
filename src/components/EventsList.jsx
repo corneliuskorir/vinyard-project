@@ -1,4 +1,4 @@
-import EventCard from "../pages/dashboard/EventCard";
+import EventCard from "./EventCard";
 import { useEvents } from "../providers/EventsProvider";
 import styles from "./EventsList.module.css";
 

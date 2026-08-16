@@ -1,4 +1,4 @@
-import EventCard from "./EventCard";
+import EventCard from "../../components/EventCard";
 import styles from "./DashboardEventsList.module.css";
 import { useOutletContext } from "react-router-dom";
 
