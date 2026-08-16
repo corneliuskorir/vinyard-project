@@ -1,10 +1,10 @@
 import { useRef, useState } from "react";
-import FormInput from "../../components/FormInput";
-import useFormData from "../../hooks/useFormData";
+import FormInput from "./FormInput";
+import useFormData from "../hooks/useFormData";
 import { useOutletContext, useParams } from "react-router-dom";
-import FormButton from "../../components/FormButton";
+import FormButton from "./FormButton";
 import styles from "./EventForm.module.css";
-import { useEvents } from "../../providers/EventsProvider";
+import { useEvents } from "../providers/EventsProvider";
 
 function EventForm() {
   const { eventId } = useParams();

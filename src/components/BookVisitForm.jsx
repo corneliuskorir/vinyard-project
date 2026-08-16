@@ -1,25 +1,33 @@
 import "../components/BookVisitForm.css";
 import FormInput from "../components/FormInput";
-import { useState } from "react";
+import useFormData from "../hooks/useFormData";
+
+import { useRef, useState } from "react";
 
 function BookVisitForm() {
-  const [formData, setFormData] = useState({
+  const nameRef = useRef();
+  const emailRef = useRef();
+  const dateRef = useRef();
+  const messageRef = useRef();
+
+  const defaultData = {
     name: "",
     email: "",
     date: "",
     message: "",
-  });
-
-  const [errors, setErrors] = useState({
+  };
+  const errorObj = {
     name: false,
     email: false,
     date: false,
     message: false,
-  });
+  };
 
-  function handleChange({ name, input }) {
-    setFormData((prev) => ({ ...prev, [name]: input }));
-  }
+  const [formError, setFormError, formData, handleFormChange] = useFormData({
+    defaultData: defaultData,
+    focusRef: nameRef,
+    errorObj: errorObj,
+  });
 
   function validateEmail(email) {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -28,19 +36,14 @@ function BookVisitForm() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    let newErrors = {
-      name: formData.name.trim() === "",
-      email: !validateEmail(formData.email),
-      date: formData.date.trim() === "",
-      message: formData.message.trim() === "",
-    };
-
-    setErrors(newErrors);
-
-    if (Object.values(newErrors).every((error) => !error)) {
-      // Submit the form or perform desired action
-      console.log("Form submitted successfully", formData);
-      alert("Thank you for booking a visit! We’ll get back to you soon.");
+    for (const key in formData) {
+      if (!Object.hasOwn(formData, key)) continue;
+      const element = formData[key].trim();
+      if (!element) {
+        console.log(`${key} is empty`);
+        setFormError((prev) => ({ ...prev, [key]: true }));
+        return;
+      }
     }
   }
 
@@ -52,32 +55,36 @@ function BookVisitForm() {
         name="name"
         placeholder="Enter your full name"
         value={formData.name}
-        onChange={handleChange}
-        error={errors.name}
+        onChange={handleFormChange}
+        error={formError.name}
+        inputRef={nameRef}
       />
       <FormInput
         lable="Email"
         name="email"
         placeholder="Enter your email"
         value={formData.email}
-        onChange={handleChange}
-        error={errors.email}
+        onChange={handleFormChange}
+        error={formError.email}
+        inputRef={emailRef}
       />
       <FormInput
         lable="Date"
         name="date"
         placeholder="Select a date"
         value={formData.date}
-        onChange={handleChange}
-        error={errors.date}
+        onChange={handleFormChange}
+        error={formError.date}
+        inputRef={dateRef}
       />
       <FormInput
-        lable="Description"
+        lable="Message"
         name="message"
         placeholder="Tell us about your visit"
         value={formData.message}
-        onChange={handleChange}
-        error={errors.message}
+        onChange={handleFormChange}
+        error={formError.message}
+        inputRef={messageRef}
       />
       <button type="submit" className="submit-btn">
         Submit

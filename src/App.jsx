@@ -10,7 +10,7 @@ import DashboardShop from "./pages/dashboard/DashboardShop";
 import DashboardVisits from "./pages/dashboard/DashboardVisits";
 import DashboardEvents from "./pages/dashboard/DashboardEvents";
 import DashboardEventsList from "./pages/dashboard/DashboardEventsList";
-import EventForm from "./pages/dashboard/EventForm";
+import EventForm from "./components/EventForm";
 import About from "./pages/About";
 import Shop from "./pages/Shop";
 
