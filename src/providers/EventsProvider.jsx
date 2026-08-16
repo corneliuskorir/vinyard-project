@@ -1,6 +1,6 @@
 import { type } from "@testing-library/user-event/dist/cjs/utility/type.js";
 import { createContext, useContext, useEffect, useReducer } from "react";
-import { data } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const EventsContext = createContext(null);
 
@@ -24,6 +24,7 @@ function handleEventRequest(state, action) {
 }
 
 function EventsProvider({ children }) {
+  const navigate = useNavigate();
   const [eventState, eventsDispatch] = useReducer(handleEventRequest, {
     error: null,
     loading: true,
@@ -31,6 +32,11 @@ function EventsProvider({ children }) {
   });
   // get inital events, visits and shop data.
   useEffect(() => {
+    getEvents();
+    console.log("From provider::", eventState);
+  }, []);
+
+  function getEvents() {
     fetch("http://localhost:3001/events")
       .then((res) => {
         eventsDispatch({ type: "FETCH_INIT", payload: true });
@@ -43,9 +49,34 @@ function EventsProvider({ children }) {
       .catch((error) =>
         eventsDispatch({ type: "FETCH_ERROR", payload: error.message }),
       );
-  }, []);
+  }
 
-  const value = { eventState };
+  function addEvents(event) {
+    eventsDispatch({ type: "FETCH_INIT", payload: true });
+    fetch("http://localhost:3001/events", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(event),
+    })
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`Failed to add new event: ${res.status}`);
+        }
+        return res.json();
+      })
+      .then((data) => {
+        (eventsDispatch({
+          type: "FETCH_SUCCESS",
+          payload: [...eventState.data, data],
+        }),
+          navigate("/dashboard/events"));
+      })
+      .catch((error) =>
+        eventsDispatch({ type: "FETCH_ERROR", payload: error.message }),
+      );
+  }
+
+  const value = { eventState, addEvents };
   return (
     <EventsContext.Provider value={value}>{children}</EventsContext.Provider>
   );

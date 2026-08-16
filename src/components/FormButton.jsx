@@ -1,9 +1,9 @@
 import styles from "./FormButton.module.css";
 
-function FormButton({ title, onClick }) {
+function FormButton({ title }) {
   return (
-    <div className={styles.buttonDiv} onClick={onClick}>
-      {title}
+    <div className={styles.buttonDiv}>
+      <button type="submit">{title}</button>
     </div>
   );
 }

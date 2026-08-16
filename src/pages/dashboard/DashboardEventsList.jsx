@@ -4,8 +4,8 @@ import { useOutletContext } from "react-router-dom";
 
 function DashboardEventsList() {
   const { loading, data, error } = useOutletContext();
-  console.log(loading, data, error);
-
+  /*   console.log(loading, data, error);
+   */
   if (loading) {
     return (
       <div className={styles.loading}>
