@@ -41,7 +41,15 @@ function App() {
               />
             }
           />
-          <Route path="/cart" element={<Cart shoppingCart={shoppingCart} />} />
+          <Route
+            path="cart"
+            element={
+              <Cart
+                shoppingCart={shoppingCart}
+                setShoppingCart={setShoppingCart}
+              />
+            }
+          />
         </Routes>
       </main>
       <Footer />

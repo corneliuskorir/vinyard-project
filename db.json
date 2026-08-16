@@ -54,9 +54,65 @@
           "image": "https://cdn.smithbrothersfarms.com/media/0011332_belgioioso-parmesan-cheese-wedge-8-oz.jpeg"
         }
       ]
-    },
-    "orders": []
+    }
   },
+  "orders": [
+    {
+      "items": [
+        {
+          "id": 1,
+          "name": "Cabernet",
+          "price": 20,
+          "image": "https://cdn.prod.website-files.com/66046fe6dc39fafe5e90d16a/679f91a26fc515e0dac5e874_Cabernet-Sauvignon-Comparison.webp"
+        },
+        {
+          "id": 2,
+          "name": "Merlot",
+          "price": 15,
+          "image": "https://chizay.com/wp-content/uploads/2018/08/Merlot_2019-3.jpg"
+        },
+        {
+          "id": 3,
+          "name": "Shiraz",
+          "price": 18,
+          "image": "https://edenvale.com.au/cdn/shop/articles/Australian_Shiraz_and_Food_Pairing.webp?v=1707318563&width=1100"
+        },
+        {
+          "id": 7,
+          "name": "Gouda",
+          "price": 14,
+          "image": "https://cdn2.bigcommerce.com/server5900/ohhf8/product_images/uploaded_images/gouda.jpg"
+        },
+        {
+          "id": 8,
+          "name": "Parmesan",
+          "price": 13,
+          "image": "https://cdn.smithbrothersfarms.com/media/0011332_belgioioso-parmesan-cheese-wedge-8-oz.jpeg"
+        }
+      ],
+      "total": 80,
+      "id": "WqY_lnqQFN0"
+    },
+    {
+      "items": [
+        {
+          "id": 1,
+          "name": "Cabernet",
+          "price": 20,
+          "image": "https://cdn.prod.website-files.com/66046fe6dc39fafe5e90d16a/679f91a26fc515e0dac5e874_Cabernet-Sauvignon-Comparison.webp"
+        },
+        {
+          "id": 2,
+          "name": "Merlot",
+          "price": 15,
+          "image": "https://chizay.com/wp-content/uploads/2018/08/Merlot_2019-3.jpg"
+        }
+      ],
+      "total": 35,
+      "id": "vKxgq2eu0hk"
+    }
+  ],
   "visits": [],
-  "events": []
+  "events": [],
+  "$schema": "./node_modules/json-server/schema.json"
 }
