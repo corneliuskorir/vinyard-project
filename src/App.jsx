@@ -15,14 +15,6 @@ import About from "./pages/About";
 import Shop from "./pages/Shop";
 
 import "./App.css";
-import DashboardLayout from "./pages/dashboard/DashboardLayout";
-import DashboardSummary from "./pages/dashboard/DashboardSummary";
-import DashboardShop from "./pages/dashboard/DashboardShop";
-import DashboardEvents from "./pages/dashboard/DashboardEvents";
-import DashboardVisits from "./pages/dashboard/DashboardVisits";
-import DashboardEventsList from "./pages/dashboard/DashboardEventsList";
-import EventForm from "./pages/dashboard/EventForm";
-
 function App() {
   const [products, setProducts] = useState({
     wines: [],
