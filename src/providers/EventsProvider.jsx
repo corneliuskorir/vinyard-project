@@ -105,7 +105,29 @@ function EventsProvider({ children }) {
       );
   }
 
-  const value = { eventState, addEvents, editEvent };
+  function deleteEvent(id) {
+    eventsDispatch({ type: "FETCH_INIT", payload: true });
+    fetch(`http://localhost:3001/events/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`Failed to delete event: ${res.status}`);
+        }
+        return res.json();
+      })
+      .then((data) => {
+        eventsDispatch({
+          type: "FETCH_SUCCESS",
+          payload: eventState.data.filter((item) => item.id !== id),
+        });
+      })
+      .catch((error) =>
+        eventsDispatch({ type: "FETCH_ERROR", payload: error.message }),
+      );
+  }
+
+  const value = { eventState, addEvents, editEvent, deleteEvent };
   return (
     <EventsContext.Provider value={value}>{children}</EventsContext.Provider>
   );
