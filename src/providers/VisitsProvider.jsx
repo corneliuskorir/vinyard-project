@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
+import { data } from "react-router-dom";
 
 const VisitsContext = createContext(null);
 
@@ -12,7 +13,7 @@ function handleVisit(state, action) {
       return {
         ...state,
         loading: false,
-        data: state.data ? [...state.data, action.payload] : action.payload,
+        data: action.payload,
       };
       break;
 
@@ -66,7 +67,7 @@ function VisitsProvider({ children }) {
       .then((data) => {
         visitsDispatch({
           type: "FETCH_SUCCESS",
-          payload: data,
+          payload: [...visitsState, data],
         });
       })
       .catch((error) =>
@@ -74,7 +75,29 @@ function VisitsProvider({ children }) {
       );
   }
 
-  const value = { visitsState, addVisit };
+  function deleteVisit(id) {
+    visitsDispatch({ type: "FETCH_INIT", payload: true });
+    fetch(`http://localhost:3001/visits/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`Failed to delete visit: ${res.status}`);
+        }
+        return res.json();
+      })
+      .then((data) => {
+        visitsDispatch({
+          type: "FETCH_SUCCESS",
+          payload: visitsState.data.filter((item) => item.id !== id),
+        });
+      })
+      .catch((error) =>
+        visitsDispatch({ type: "FETCH_ERROR", payload: error.message }),
+      );
+  }
+
+  const value = { visitsState, addVisit, deleteVisit };
   return (
     <VisitsContext.Provider value={value}>{children}</VisitsContext.Provider>
   );
