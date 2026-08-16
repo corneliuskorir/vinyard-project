@@ -1,10 +1,4 @@
-import {
-  Children,
-  createContext,
-  useContext,
-  useEffect,
-  useReducer,
-} from "react";
+import { createContext, useContext, useEffect, useReducer } from "react";
 
 const VisitsContext = createContext(null);
 
@@ -15,7 +9,11 @@ function handleVisit(state, action) {
       break;
 
     case "FETCH_SUCCESS":
-      return { ...state, loading: false, data: action.payload };
+      return {
+        ...state,
+        loading: false,
+        data: state.data ? [...state.data, action.payload] : action.payload,
+      };
       break;
 
     case "FETCH_ERROR":
@@ -48,11 +46,35 @@ function VisitsProvider({ children }) {
       })
       .then((data) => visitsDispatch({ type: "FETCH_SUCCESS", payload: data }))
       .catch((error) =>
-        visitsDispatch({ type: "FETCH_SUCCESS", payload: error.message }),
+        visitsDispatch({ type: "FETCH_ERROR", payload: error.message }),
       );
   }
 
-  const value = { visitsState };
+  function addVisit(visit) {
+    visitsDispatch({ type: "FETCH_INIT", payload: true });
+    fetch("http://localhost:3001/visits", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(visit),
+    })
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`Failed to add new visit: ${res.status}`);
+        }
+        return res.json();
+      })
+      .then((data) => {
+        visitsDispatch({
+          type: "FETCH_SUCCESS",
+          payload: data,
+        });
+      })
+      .catch((error) =>
+        visitsDispatch({ type: "FETCH_ERROR", payload: error.message }),
+      );
+  }
+
+  const value = { visitsState, addVisit };
   return (
     <VisitsContext.Provider value={value}>{children}</VisitsContext.Provider>
   );
@@ -60,7 +82,7 @@ function VisitsProvider({ children }) {
 
 function useVisits() {
   const context = useContext(VisitsContext);
-  if (contet === null || context === undefined) {
+  if (context === null || context === undefined) {
     throw new Error("Cannnot use Visit context outside of provider");
   }
   return context;

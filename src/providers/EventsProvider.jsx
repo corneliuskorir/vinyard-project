@@ -11,7 +11,11 @@ function handleEventRequest(state, action) {
       break;
 
     case "FETCH_SUCCESS":
-      return { ...state, loading: false, data: action.payload };
+      return {
+        ...state,
+        loading: false,
+        data: state.data ? [...state.data, action.payload] : action.payload,
+      };
       break;
 
     case "FETCH_ERROR":
@@ -67,7 +71,7 @@ function EventsProvider({ children }) {
       .then((data) => {
         eventsDispatch({
           type: "FETCH_SUCCESS",
-          payload: [...eventState.data, data],
+          payload: data,
         });
         navigate("/dashboard/events");
       })

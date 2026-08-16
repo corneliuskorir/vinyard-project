@@ -3,12 +3,17 @@ import FormInput from "../components/FormInput";
 import useFormData from "../hooks/useFormData";
 
 import { useRef, useState } from "react";
+import { useVisits } from "../providers/VisitsProvider";
 
 function BookVisitForm() {
   const nameRef = useRef();
   const emailRef = useRef();
   const dateRef = useRef();
   const messageRef = useRef();
+
+  const { visitsState, addVisit } = useVisits();
+
+  const { loading, error } = visitsState;
 
   const defaultData = {
     name: "",
@@ -45,9 +50,12 @@ function BookVisitForm() {
         return;
       }
     }
+    addVisit(formData);
   }
 
-  return (
+  return loading ? (
+    <div>Working on it...</div>
+  ) : (
     <form className="book-visit-form" onSubmit={handleSubmit}>
       <h2>Book a Visit</h2>
       <FormInput

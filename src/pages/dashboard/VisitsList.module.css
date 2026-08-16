@@ -1,0 +1,12 @@
+.visitsList {
+  display: flex;
+}
+
+.noData {
+  font-size: 1.2rem;
+  color: var(--main);
+}
+
+.error {
+  color: red;
+}

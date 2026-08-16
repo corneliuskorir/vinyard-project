@@ -1,0 +1,23 @@
+.visits {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.visits .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0px;
+  color: var(--header);
+}
+
+.visits .header h1 {
+  margin: 0;
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
