@@ -1,9 +1,41 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useState } from "react";
 
-const AuthContext = createContext();
+const AuthContext = createContext(null);
 
 function AuthProvider({ children }) {
-  const value = {};
+  const [authState, setAuthState] = useState({ loading: false, error: null });
+  const [user, setUser] = useState({
+    firstName: null,
+    secondName: null,
+    password: null,
+    username: null,
+    admin: false,
+  });
+  function login(userInfo) {
+    setAuthState({ loading: true, error: null });
+    fetch("http://localhost:3001/users")
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`Failed to login user: ${res.status}`);
+        }
+        return res.json();
+      })
+      .then((data) => {
+        console.log(data);
+        const usr = data.find(
+          (user) =>
+            user.username === userInfo.username &&
+            user.password === userInfo.password,
+        );
+        if (!usr) {
+          throw new Error("No user with those credetials");
+        }
+        setUser(user);
+        setAuthState({ loading: false, error: null });
+      })
+      .catch((e) => setAuthState({ loading: false, error: e.message }));
+  }
+  const value = { user, authState, login };
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
 
@@ -14,3 +46,5 @@ function useAuth() {
   }
   return context;
 }
+
+export { AuthProvider, useAuth };

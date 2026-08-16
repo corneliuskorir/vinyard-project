@@ -17,6 +17,8 @@ function FormInput({
 
   const isEmail = name === "email";
 
+  const isPassword = name === "password";
+
   function handleChange(e) {
     onChange({ name: name, input: e.target.value });
   }
@@ -36,7 +38,15 @@ function FormInput({
           name={name}
           ref={inputRef}
           value={value}
-          type={isDate ? "datetime-local" : isEmail ? "email" : "text"}
+          type={
+            isDate
+              ? "datetime-local"
+              : isEmail
+                ? "email"
+                : isPassword
+                  ? "password"
+                  : "text"
+          }
           id={id}
           placeholder={placeholder}
           onChange={handleChange}

@@ -1,13 +1,16 @@
-import { NavLink, Outlet, useNavigate } from "react-router-dom";
+import { Navigate, NavLink, Outlet, useNavigate } from "react-router-dom";
 import styles from "./DashboardLayout.module.css";
 import { DashboardProvider } from "../../providers/DashboardProvider";
+import { useAuth } from "../../providers/AuthProvider";
 
 const linkStyle = ({ isActive }) =>
   ` ${styles.navLink} ${isActive ? styles.active : ""}`;
 function DashboardLayout() {
   const navigate = useNavigate();
 
-  return (
+  const { user } = useAuth();
+
+  return user.admin ? (
     <div className={styles.dashboard}>
       <div className={styles.navigation}>
         <div className={styles.header} onClick={() => navigate("/dashboard")}>
@@ -34,6 +37,8 @@ function DashboardLayout() {
         </DashboardProvider>
       </div>
     </div>
+  ) : (
+    <Navigate to={user.username ? "/" : "/authenticate"} replace />
   );
 }
 

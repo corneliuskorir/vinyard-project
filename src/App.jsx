@@ -18,6 +18,8 @@ import "./App.css";
 import BookVisitForm from "./components/BookVisitForm";
 import VisitsList from "./pages/dashboard/VisitsList";
 import Events from "./pages/Events";
+import { AuthProvider } from "./providers/AuthProvider";
+import Authentication from "./pages/Authentication";
 function App() {
   const [products, setProducts] = useState({
     wines: [],
@@ -36,34 +38,39 @@ function App() {
       });
   }, []);
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<MainLayout />}>
-          <Route index element={<LandingPage />} />
-          <Route path="about" element={<About />} />
-          <Route path="events" element={<Events />} />
-          <Route
-            path="/shop"
-            element={
-              <Shop products={products} setShoppingCart={setShoppingCart} />
-            }
-          />
-          <Route path="/book-visit" element={<BookVisitForm />} />
-        </Route>
-        <Route path="/dashboard" element={<DashboardLayout />}>
-          <Route index element={<DashboardSummary />} />
-          <Route path="Shop" element={<DashboardShop />}></Route>
-          <Route path="visits" element={<DashboardVisits />}>
-            <Route index element={<VisitsList />} />
+    <AuthProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<MainLayout />}>
+            <Route index element={<LandingPage />} />
+            <Route path="about" element={<About />} />
+            <Route path="events" element={<Events />} />
+            <Route
+              path="/shop"
+              element={
+                <Shop products={products} setShoppingCart={setShoppingCart} />
+              }
+            />
+            <Route path="/book-visit" element={<BookVisitForm />} />
           </Route>
-          <Route path="events" element={<DashboardEvents />}>
-            <Route index element={<DashboardEventsList />} />
-            <Route path="new" element={<EventForm />} />
-            <Route path=":eventId" element={<EventForm />} />
+
+          <Route path="/authenticate" element={<Authentication />} />
+
+          <Route path="/dashboard" element={<DashboardLayout />}>
+            <Route index element={<DashboardSummary />} />
+            <Route path="Shop" element={<DashboardShop />}></Route>
+            <Route path="visits" element={<DashboardVisits />}>
+              <Route index element={<VisitsList />} />
+            </Route>
+            <Route path="events" element={<DashboardEvents />}>
+              <Route index element={<DashboardEventsList />} />
+              <Route path="new" element={<EventForm />} />
+              <Route path=":eventId" element={<EventForm />} />
+            </Route>
           </Route>
-        </Route>
-      </Routes>
-    </BrowserRouter>
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 
