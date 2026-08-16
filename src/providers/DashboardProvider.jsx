@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
 import { EventsProvider } from "./EventsProvider";
+import { VisitsProvider } from "./VisitsProvider";
 
 const DashboardContext = createContext(null);
 
@@ -9,7 +10,9 @@ function DashboardProvider({ children }) {
   const value = {};
   return (
     <DashboardContext.Provider value={value}>
-      <EventsProvider>{children}</EventsProvider>
+      <VisitsProvider>
+        <EventsProvider>{children}</EventsProvider>
+      </VisitsProvider>
     </DashboardContext.Provider>
   );
 }

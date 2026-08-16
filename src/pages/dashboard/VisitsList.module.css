@@ -1,0 +1,14 @@
+.visitsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.noData {
+  font-size: 1.2rem;
+  color: var(--main);
+}
+
+.error {
+  color: red;
+}

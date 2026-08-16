@@ -22,6 +22,10 @@
   border: 2px solid var(--header);
 }
 
+.formInput input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
 .formInput.error input {
   border: 2px solid red;
 }

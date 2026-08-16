@@ -5,10 +5,11 @@ import { useEvents } from "../providers/EventsProvider";
 
 function EventCard({ event }) {
   const location = useLocation();
-  const isDashborad = location === "/dashboard/events";
+  const isDashboard = location.pathname === "/dashboard/events";
 
   const navigate = useNavigate();
 
+  console.log("Date problem", new Date(event.date));
   const date = format(new Date(event.date), "LLL io y K:mm bbb");
 
   const { deleteEvent } = useEvents();
@@ -23,7 +24,7 @@ function EventCard({ event }) {
         <p>{event.description}</p>
         <p id="date">{date}</p>
 
-        {isDashborad && (
+        {isDashboard && (
           <div className={styles.buttons}>
             <div onClick={() => navigate(`/dashboard/events/${event.id}`)}>
               Edit

@@ -11,9 +11,11 @@ function FormInput({
   value,
 }) {
   const id = useId();
-  const isDescription = lable === "Description";
+  const isLongForm = name === "description" || name === "message";
 
-  const isDate = lable === "Date";
+  const isDate = name === "date";
+
+  const isEmail = name === "email";
 
   function handleChange(e) {
     onChange({ name: name, input: e.target.value });
@@ -21,7 +23,7 @@ function FormInput({
   return (
     <div className={`${styles.formInput} ${error ? styles.error : ""}`}>
       <label htmlFor={id}>{lable ? lable : ""}</label>
-      {isDescription ? (
+      {isLongForm ? (
         <textarea
           id={id}
           name={name}
@@ -34,7 +36,7 @@ function FormInput({
           name={name}
           ref={inputRef}
           value={value}
-          type={isDate ? "datetime-local" : "text"}
+          type={isDate ? "datetime-local" : isEmail ? "email" : "text"}
           id={id}
           placeholder={placeholder}
           onChange={handleChange}
