@@ -12,7 +12,7 @@ function useFormData({ defaultData, focusRef, errorObj }) {
   }
 
   useEffect(() => {
-    focusRef.current.focus();
+    focusRef.current?.focus();
   }, []);
 
   return [formError, setFormError, formData, handleFormChange, setFormData];

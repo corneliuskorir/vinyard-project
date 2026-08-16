@@ -2,7 +2,7 @@ import "../components/BookVisitForm.css";
 import FormInput from "../components/FormInput";
 import useFormData from "../hooks/useFormData";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useVisits } from "../providers/VisitsProvider";
 
 function BookVisitForm() {
