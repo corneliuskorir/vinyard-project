@@ -28,12 +28,12 @@ function App() {
   const [shoppingCart, setShoppingCart] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3001/store/")
+    fetch("http://localhost:3001/products/")
       .then((response) => response.json())
       .then((data) => {
-        console.log("GET DATA:", data.products);
+        console.log("GET DATA:", data);
 
-        setProducts(data.products);
+        setProducts(data);
       });
   }, []);
   return (
@@ -67,7 +67,12 @@ function App() {
         </Route>
         <Route path="/dashboard" element={<DashboardLayout />}>
           <Route index element={<DashboardSummary />} />
-          <Route path="Shop" element={<DashboardShop />}></Route>
+          <Route
+            path="Shop"
+            element={
+              <DashboardShop products={products} setProductsm={setProducts} />
+            }
+          ></Route>
           <Route path="visits" element={<DashboardVisits />}>
             <Route index element={<VisitsList />} />
           </Route>
