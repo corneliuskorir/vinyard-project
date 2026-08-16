@@ -1,0 +1,21 @@
+.eventsList {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px;
+}
+
+.error {
+  color: red;
+}
+
+.empty {
+  display: flex;
+  font-weight: 300;
+  font-size: 1.3rem;
+  min-height: 300px;
+  align-items: center;
+  padding: 10px 20px;
+  color: white;
+}

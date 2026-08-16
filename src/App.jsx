@@ -15,6 +15,8 @@ import About from "./pages/About";
 import Shop from "./pages/Shop";
 
 import "./App.css";
+import VisitsList from "./pages/dashboard/VisitsList";
+import Events from "./pages/Events";
 function App() {
   const [products, setProducts] = useState({
     wines: [],
@@ -38,6 +40,7 @@ function App() {
         <Route path="/" element={<MainLayout />}>
           <Route index element={<LandingPage />} />
           <Route path="about" element={<About />} />
+          <Route path="events" element={<Events />} />
           <Route
             path="/shop"
             element={
@@ -48,7 +51,9 @@ function App() {
         <Route path="/dashboard" element={<DashboardLayout />}>
           <Route index element={<DashboardSummary />} />
           <Route path="Shop" element={<DashboardShop />}></Route>
-          <Route path="visits" element={<DashboardVisits />}></Route>
+          <Route path="visits" element={<DashboardVisits />}>
+            <Route index element={<VisitsList />} />
+          </Route>
           <Route path="events" element={<DashboardEvents />}>
             <Route index element={<DashboardEventsList />} />
             <Route path="new" element={<EventForm />} />
