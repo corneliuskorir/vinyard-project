@@ -29,5 +29,5 @@
 }
 
 .submit-btn:hover {
-  background-color: #444;
+  background-color: var(--sub-header);
 }
