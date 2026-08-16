@@ -11,7 +11,7 @@ function DashboardLayout() {
     <div className={styles.dashboard}>
       <div className={styles.navigation}>
         <div className={styles.header} onClick={() => navigate("/dashboard")}>
-          <p>Ambrosia</p>
+          <p>Suncrest Valley</p>
           <h1>Dashboard</h1>
         </div>
         <div>
