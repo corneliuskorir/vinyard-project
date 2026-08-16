@@ -1,12 +1,17 @@
 import { useNavigate } from "react-router-dom";
 import styles from "./EventCard.module.css";
+import { format } from "date-fns";
 
 function EventCard({ event }) {
   const navigate = useNavigate();
+
+  const date = format(new Date(event.date), "LLL io y K:mm bbb");
+
   return (
     <div className={styles.eventCard}>
       <h3>{event.title} </h3>
       <p>{event.description}</p>
+      <p id="date">{date}</p>
       <div className={styles.eventImage}>
         <img src={event.imageUrl} />
       </div>

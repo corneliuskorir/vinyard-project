@@ -33,6 +33,11 @@
   margin: 0px;
   font-weight: 300;
 }
+.eventCard p[id="date"] {
+  margin: 0px;
+  font-weight: 300;
+  font-size: 0.8rem;
+}
 .eventCard .eventImage {
   overflow: hidden;
   width: 100%;
