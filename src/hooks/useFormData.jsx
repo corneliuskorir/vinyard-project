@@ -15,7 +15,7 @@ function useFormData({ defaultData, focusRef, errorObj }) {
     focusRef.current.focus();
   }, []);
 
-  return [formError, setFormError, formData, handleFormChange];
+  return [formError, setFormError, formData, handleFormChange, setFormData];
 }
 
 export default useFormData;

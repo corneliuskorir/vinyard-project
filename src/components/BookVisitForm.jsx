@@ -10,6 +10,9 @@ function BookVisitForm() {
   const emailRef = useRef();
   const dateRef = useRef();
   const messageRef = useRef();
+  const successRef = useRef();
+
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const { visitsState, addVisit } = useVisits();
 
@@ -28,11 +31,12 @@ function BookVisitForm() {
     message: false,
   };
 
-  const [formError, setFormError, formData, handleFormChange] = useFormData({
-    defaultData: defaultData,
-    focusRef: nameRef,
-    errorObj: errorObj,
-  });
+  const [formError, setFormError, formData, handleFormChange, setFormData] =
+    useFormData({
+      defaultData: defaultData,
+      focusRef: nameRef,
+      errorObj: errorObj,
+    });
 
   function validateEmail(email) {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -51,6 +55,17 @@ function BookVisitForm() {
       }
     }
     addVisit(formData);
+    if (!error || !loading) {
+      setFormData(defaultData);
+      setShowSuccess(true);
+      successRef.current.scrollIntoView({
+        behaviour: "smooth",
+        block: "end",
+      });
+      setTimeout(() => {
+        setShowSuccess(false);
+      }, 5000);
+    }
   }
 
   return loading ? (
@@ -97,6 +112,17 @@ function BookVisitForm() {
       <button type="submit" className="submit-btn">
         Submit
       </button>
+
+      {showSuccess && (
+        <div className="success" ref={successRef}>
+          <p>Thank you for booking a visit with us.</p>
+          <p>
+            An agent of fine taste will contact you shorty to confirm your
+            appointment
+          </p>
+          <p>See you soon</p>
+        </div>
+      )}
     </form>
   );
 }
