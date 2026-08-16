@@ -58,5 +58,14 @@
     "orders": []
   },
   "visits": [],
-  "events": []
+  "events": [
+    {
+      "title": "Wine and say cheese",
+      "description": "Chill under the valley sun and taste its masterful work with a selection of cheeses ",
+      "imageUrl": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "date": "2026-09-24T13:30",
+      "id": "gkxRWc6Zze0"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

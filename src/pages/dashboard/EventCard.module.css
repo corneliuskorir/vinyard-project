@@ -1,7 +1,7 @@
 .eventCard {
   display: flex;
   flex-direction: column;
-  padding: 20px 20px;
+  padding: 20px 10px;
   gap: 10px;
   background-color: var(--bg);
   border: 2px solid var(--sub-header);
@@ -9,6 +9,7 @@
   min-width: 200px;
   max-width: 300px;
   transition: 0.3;
+  max-height: fit-content;
 }
 .eventCard:hover {
   border: 3px solid var(--header);
@@ -21,6 +22,36 @@
   align-self: flex-end;
   padding: 5px;
   transition: 0.3s;
+}
+.eventCard h3 {
+  margin: 0px;
+  color: var(--main);
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+.eventCard p {
+  margin: 0px;
+  font-weight: 300;
+}
+.eventCard p[id="date"] {
+  margin: 0px;
+  font-weight: 300;
+  font-size: 0.8rem;
+}
+.eventCard .eventImage {
+  overflow: hidden;
+  width: 100%;
+  max-height: 300px;
+}
+.eventCard .eventImage {
+  overflow: hidden;
+  width: 100%;
+  max-height: 300px;
+}
+.eventCard .eventImage img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 .eventCard .buttons div {
   padding: 5px;

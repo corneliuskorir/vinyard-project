@@ -1,5 +1,6 @@
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import styles from "./DashboardLayout.module.css";
+import { DashboardProvider } from "../../providers/DashboardProvider";
 
 const linkStyle = ({ isActive }) =>
   ` ${styles.navLink} ${isActive ? styles.active : ""}`;
@@ -10,7 +11,7 @@ function DashboardLayout() {
     <div className={styles.dashboard}>
       <div className={styles.navigation}>
         <div className={styles.header} onClick={() => navigate("/dashboard")}>
-          <p>Ambrosia</p>
+          <p>Suncrest Valley</p>
           <h1>Dashboard</h1>
         </div>
         <div>
@@ -28,7 +29,9 @@ function DashboardLayout() {
         </div>
       </div>
       <div className={styles.content}>
-        <Outlet />
+        <DashboardProvider>
+          <Outlet />
+        </DashboardProvider>
       </div>
     </div>
   );

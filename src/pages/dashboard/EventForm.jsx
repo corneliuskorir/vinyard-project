@@ -1,24 +1,37 @@
 import { useRef, useState } from "react";
 import FormInput from "../../components/FormInput";
 import useFormData from "../../hooks/useFormData";
-import { useParams } from "react-router-dom";
+import { useOutletContext, useParams } from "react-router-dom";
 import FormButton from "../../components/FormButton";
 import styles from "./EventForm.module.css";
+import { useEvents } from "../../providers/EventsProvider";
 
 function EventForm() {
   const { eventId } = useParams();
+  /*   console.log(eventId);
+   */
+  const { addEvents, editEvent } = useEvents();
 
-  console.log(eventId);
+  const { loading, data, error } = useOutletContext();
 
-  const defaultData = { title: "", description: "", imageUrl: "", date: "" };
-  const errorObj = { title: false, description: false, image: false };
+  let defaultData = { title: "", description: "", imageUrl: "", date: "" };
+  const errorObj = {
+    title: false,
+    description: false,
+    imageUrl: false,
+    date: false,
+  };
+
+  if (eventId) {
+    defaultData = data.find((item) => item.id === eventId);
+  }
 
   const titleRef = useRef();
   const descriptionRef = useRef();
   const imageUrlRef = useRef();
   const dateRef = useRef();
 
-  const [error, formData, handleFormChange] = useFormData({
+  const [formError, setFormError, formData, handleFormChange] = useFormData({
     defaultData: defaultData,
     focusRef: titleRef,
     errorObj: errorObj,
@@ -26,6 +39,29 @@ function EventForm() {
 
   function handleSubmit(e) {
     e.preventDefault();
+    //validate formdata not empty and set error to true for field that does
+    for (const key in formData) {
+      if (!Object.hasOwn(formData, key)) continue;
+      const element = formData[key].trim();
+      if (!element) {
+        console.log(`${key} is empty`);
+        setFormError((prev) => ({ ...prev, [key]: true }));
+        return;
+      }
+    }
+    if (eventId) {
+      editEvent(formData);
+      return;
+    }
+    addEvents(formData);
+  }
+
+  if (loading) {
+    return <div className={styles.loading}> Just a moment...</div>;
+  }
+
+  if (error) {
+    return <div className={styles.error}>{error}</div>;
   }
 
   return (
@@ -37,7 +73,7 @@ function EventForm() {
           name={"title"}
           value={formData.title}
           placeholder={"Enter event title"}
-          error={error.title}
+          error={formError.title}
           inputRef={titleRef}
           onChange={handleFormChange}
         />
@@ -47,7 +83,7 @@ function EventForm() {
           name={"description"}
           value={formData.description}
           placeholder={"Description of the event"}
-          error={error.description}
+          error={formError.description}
           inputRef={descriptionRef}
           onChange={handleFormChange}
         />
@@ -57,7 +93,7 @@ function EventForm() {
           name={"imageUrl"}
           value={formData.imageUrl}
           placeholder={"Poster Image url"}
-          error={error.image}
+          error={formError.imageUrl}
           inputRef={imageUrlRef}
           onChange={handleFormChange}
         />
@@ -66,7 +102,7 @@ function EventForm() {
           lable={"Date"}
           name={"date"}
           value={formData.date}
-          error={error.date}
+          error={formError.date}
           inputRef={dateRef}
           onChange={handleFormChange}
         />
