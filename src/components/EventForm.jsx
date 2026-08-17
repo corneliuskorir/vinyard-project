@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import FormInput from "./FormInput";
 import useFormData from "../hooks/useFormData";
 import { useOutletContext, useParams } from "react-router-dom";
@@ -8,13 +8,17 @@ import { useEvents } from "../providers/EventsProvider";
 
 function EventForm() {
   const { eventId } = useParams();
-  /*   console.log(eventId);
-   */
+  console.log(eventId);
+
   const { addEvents, editEvent } = useEvents();
 
   const { loading, data, error } = useOutletContext();
-
   let defaultData = { title: "", description: "", imageUrl: "", date: "" };
+
+  useEffect(() => {
+    defaultData = { title: "", description: "", imageUrl: "", date: "" };
+  }, []);
+
   const errorObj = {
     title: false,
     description: false,
@@ -22,9 +26,17 @@ function EventForm() {
     date: false,
   };
 
+  console.log("data has something", data);
+
   if (eventId) {
-    defaultData = data.find((item) => item.id === eventId);
+    console.log("this is called", typeof eventId);
+    if (typeof eventId === String) {
+      console.log("this is string");
+    }
+    defaultData = data.find((item) => String(item.id) === eventId);
   }
+
+  console.log("default data", defaultData);
 
   const titleRef = useRef();
   const descriptionRef = useRef();
@@ -42,7 +54,7 @@ function EventForm() {
     //validate formdata not empty and set error to true for field that does
     for (const key in formData) {
       if (!Object.hasOwn(formData, key)) continue;
-      const element = formData[key].trim();
+      const element = formData[key];
       if (!element) {
         console.log(`${key} is empty`);
         setFormError((prev) => ({ ...prev, [key]: true }));
@@ -51,6 +63,7 @@ function EventForm() {
     }
     if (eventId) {
       editEvent(formData);
+
       return;
     }
     addEvents(formData);

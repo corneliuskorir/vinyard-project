@@ -13,6 +13,7 @@ import DashboardEventsList from "./pages/dashboard/DashboardEventsList";
 import EventForm from "./components/EventForm";
 import About from "./pages/About";
 import Shop from "./pages/Shop";
+import Cart from "./components/Cart";
 
 import "./App.css";
 import BookVisitForm from "./components/BookVisitForm";
@@ -20,6 +21,8 @@ import VisitsList from "./pages/dashboard/VisitsList";
 import Events from "./pages/Events";
 import { AuthProvider } from "./providers/AuthProvider";
 import Authentication from "./pages/Authentication";
+
+const API_URL = import.meta.env.VITE_BASE_API_URL;
 function App() {
   const [products, setProducts] = useState({
     wines: [],
@@ -29,12 +32,12 @@ function App() {
   const [shoppingCart, setShoppingCart] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3001/store/")
+    fetch(`${API_URL}/products/`)
       .then((response) => response.json())
       .then((data) => {
-        console.log("GET DATA:", data.products);
+        console.log("GET DATA:", data);
 
-        setProducts(data.products);
+        setProducts(data);
       });
   }, []);
   return (
@@ -48,17 +51,35 @@ function App() {
             <Route
               path="/shop"
               element={
-                <Shop products={products} setShoppingCart={setShoppingCart} />
+                <Shop
+                  products={products}
+                  setShoppingCart={setShoppingCart}
+                  shoppingCart={shoppingCart}
+                />
+              }
+            />
+
+            <Route
+              path="cart"
+              element={
+                <Cart
+                  shoppingCart={shoppingCart}
+                  setShoppingCart={setShoppingCart}
+                />
               }
             />
             <Route path="/book-visit" element={<BookVisitForm />} />
           </Route>
-
           <Route path="/authenticate" element={<Authentication />} />
 
           <Route path="/dashboard" element={<DashboardLayout />}>
             <Route index element={<DashboardSummary />} />
-            <Route path="Shop" element={<DashboardShop />}></Route>
+            <Route
+              path="Shop"
+              element={
+                <DashboardShop products={products} setProducts={setProducts} />
+              }
+            ></Route>
             <Route path="visits" element={<DashboardVisits />}>
               <Route index element={<VisitsList />} />
             </Route>
