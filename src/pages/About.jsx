@@ -21,7 +21,7 @@ function AboutPage() {
       setTimeout(() => {
         setIndex((prev) => (prev + 1) % images.length);
         setFade(false);
-      }, 1000); // fade duration
+      }, 500); // fade duration
     }, 5000); // change every 5s
     return () => clearInterval(interval);
   }, []);
