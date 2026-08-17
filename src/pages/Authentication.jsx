@@ -1,4 +1,5 @@
 import { useContext, useRef, useState } from "react";
+import { Navigate } from "react-router-dom";
 import styles from "./Authentication.module.css";
 import FormInput from "../components/FormInput";
 import FormButton from "../components/FormButton";
@@ -13,7 +14,7 @@ function Authentication() {
   const passwordRef = useRef();
   const emailRef = useRef();
 
-  const { user, authState, login } = useAuth();
+  const { user, authState, login, signUp } = useAuth();
 
   const defaultData = {
     firstName: "",
@@ -65,12 +66,17 @@ function Authentication() {
     }
     if (signInLoginToggle) {
       login(formData);
+      return;
     } else {
-      console.log("sign up");
+      signUp(formData);
+      return;
     }
   }
+  console.log(user);
 
-  return (
+  return user.userName ? (
+    <Navigate to="/" replace />
+  ) : (
     <div className={styles.auth}>
       <div className={styles.header}>
         <h1>Welcome {signInLoginToggle && "back"} to Suncrest valley</h1>
@@ -84,7 +90,6 @@ function Authentication() {
         <form onSubmit={handleSubmit}>
           {!signInLoginToggle && (
             <>
-              {" "}
               <FormInput
                 name={"firstName"}
                 value={formData.firstName}

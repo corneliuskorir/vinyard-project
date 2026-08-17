@@ -1,5 +1,15 @@
 {
-  "users": [],
+  "users": [
+    {
+      "firstName": "Cornelius",
+      "lastName": "korir",
+      "email": "cornelius.korir@student.moringaschool.com",
+      "userName": "conelius",
+      "password": "password",
+      "admin": false,
+      "id": "26Tzf-KvHco"
+    }
+  ],
   "store": {
     "products": {
       "wines": [

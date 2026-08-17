@@ -8,9 +8,15 @@ const linkStyle = ({ isActive }) =>
 function DashboardLayout() {
   const navigate = useNavigate();
 
-  const { user } = useAuth();
+  const { user, authState } = useAuth();
 
-  return user.admin ? (
+  console.log(user.userName);
+
+  if (authState.loading) {
+    return <div>Loading...</div>;
+  }
+
+  return user.userName !== null ? (
     <div className={styles.dashboard}>
       <div className={styles.navigation}>
         <div className={styles.header} onClick={() => navigate("/dashboard")}>
@@ -38,7 +44,7 @@ function DashboardLayout() {
       </div>
     </div>
   ) : (
-    <Navigate to={user.username ? "/" : "/authenticate"} replace />
+    <Navigate to={"/authenticate"} replace />
   );
 }
 

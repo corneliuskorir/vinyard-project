@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const AuthContext = createContext(null);
 
@@ -6,11 +6,21 @@ function AuthProvider({ children }) {
   const [authState, setAuthState] = useState({ loading: false, error: null });
   const [user, setUser] = useState({
     firstName: null,
+    email: null,
     secondName: null,
     password: null,
-    username: null,
+    userName: null,
     admin: false,
   });
+  useEffect(() => {
+    const usr = localStorage.getItem("user");
+
+    if (usr) {
+      const storedUser = JSON.parse(usr);
+      setUser(storedUser);
+    }
+  }, []);
+
   function login(userInfo) {
     setAuthState({ loading: true, error: null });
     fetch("http://localhost:3001/users")
@@ -27,15 +37,38 @@ function AuthProvider({ children }) {
             user.username === userInfo.username &&
             user.password === userInfo.password,
         );
+        console.log(usr);
         if (!usr) {
           throw new Error("No user with those credetials");
         }
-        setUser(user);
+        setUser(usr);
+        localStorage.setItem("user", JSON.stringify(usr));
         setAuthState({ loading: false, error: null });
       })
       .catch((e) => setAuthState({ loading: false, error: e.message }));
   }
-  const value = { user, authState, login };
+  function signUp(userInfo) {
+    setAuthState({ loading: true, error: null });
+    fetch(`http://localhost:3001/users`, {
+      method: "POST",
+      headers: { "Content-Type": "application/text" },
+      body: JSON.stringify({ ...userInfo, admin: false }),
+    })
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`Failed to sign up user: ${res.status}`);
+        }
+        return res.json();
+      })
+      .then((data) => {
+        console.log(data);
+        setUser(data);
+        localStorage.setItem("user", JSON.stringify(data));
+        setAuthState({ loading: false, error: null });
+      })
+      .catch((e) => setAuthState({ loading: false, error: e.message }));
+  }
+  const value = { user, authState, login, signUp };
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
 
