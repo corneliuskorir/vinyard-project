@@ -11,40 +11,49 @@ function DashboardLayout() {
   const { user, authState } = useAuth();
 
   console.log(user.userName);
+  console.log(authState);
 
   if (authState.loading) {
     return <div>Loading...</div>;
   }
 
-  return user.userName !== null ? (
-    <div className={styles.dashboard}>
-      <div className={styles.navigation}>
-        <div className={styles.header} onClick={() => navigate("/dashboard")}>
-          <p>Suncrest Valley</p>
-          <h1>Dashboard</h1>
+  const availableUser = !(user.userName === null);
+  console.log(user.admin);
+
+  return user.admin ? (
+    <>
+      <div className={styles.dashboard}>
+        <div className={styles.navigation}>
+          <div className={styles.header} onClick={() => navigate("/dashboard")}>
+            <p>Suncrest Valley</p>
+            <h1>Dashboard</h1>
+          </div>
+          <div>
+            <nav>
+              <NavLink to="/dashboard/shop" className={linkStyle}>
+                Shop
+              </NavLink>
+              <NavLink to="/dashboard/visits" className={linkStyle}>
+                Visits
+              </NavLink>
+              <NavLink to="/dashboard/events" className={linkStyle}>
+                Events
+              </NavLink>
+              <NavLink to="/dashboard/users" className={linkStyle}>
+                Users
+              </NavLink>
+            </nav>
+          </div>
         </div>
-        <div>
-          <nav>
-            <NavLink to="/dashboard/shop" className={linkStyle}>
-              Shop
-            </NavLink>
-            <NavLink to="/dashboard/visits" className={linkStyle}>
-              Visits
-            </NavLink>
-            <NavLink to="/dashboard/events" className={linkStyle}>
-              Events
-            </NavLink>
-          </nav>
+        <div className={styles.content}>
+          <DashboardProvider>
+            <Outlet />
+          </DashboardProvider>
         </div>
       </div>
-      <div className={styles.content}>
-        <DashboardProvider>
-          <Outlet />
-        </DashboardProvider>
-      </div>
-    </div>
+    </>
   ) : (
-    <Navigate to={"/authenticate"} replace />
+    !availableUser && <Navigate to="/authenticate" replace />
   );
 }
 

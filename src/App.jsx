@@ -21,6 +21,7 @@ import VisitsList from "./pages/dashboard/VisitsList";
 import Events from "./pages/Events";
 import { AuthProvider } from "./providers/AuthProvider";
 import Authentication from "./pages/Authentication";
+import UserManagement from "./pages/dashboard/UserManagement";
 
 const API_URL = import.meta.env.VITE_BASE_API_URL;
 function App() {
@@ -88,6 +89,7 @@ function App() {
               <Route path="new" element={<EventForm />} />
               <Route path=":eventId" element={<EventForm />} />
             </Route>
+            <Route path="users" element={<UserManagement />}></Route>
           </Route>
         </Routes>
       </BrowserRouter>
