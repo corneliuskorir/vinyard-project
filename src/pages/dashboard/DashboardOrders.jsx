@@ -35,23 +35,28 @@ function DashboardOrders() {
                 <h4>Customer details</h4>
 
                 <p>
-                  <strong>Name:</strong> {order.customer.name}
+                  <strong>Name:</strong>{" "}
+                  {order.customer?.name ?? "Not provided"}
                 </p>
 
                 <p>
-                  <strong>Email:</strong> {order.customer.email}
+                  <strong>Email:</strong>{" "}
+                  {order.customer?.email ?? "Not provided"}
                 </p>
 
                 <p>
-                  <strong>Phone</strong> {order.customer.phone}
+                  <strong>Phone</strong>{" "}
+                  {order.customer?.phone ?? "Not provided"}
                 </p>
 
                 <p>
-                  <strong>Address:</strong> {order.customer.address}
+                  <strong>Address:</strong>{" "}
+                  {order.customer?.address ?? "Not provided"}
                 </p>
 
                 <p>
-                  <strong>Notes:</strong> {order.customer.notes}
+                  <strong>Notes:</strong>{" "}
+                  {order.customer?.notes ?? "Not provided"}
                 </p>
               </div>
 
