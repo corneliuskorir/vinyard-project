@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { it } from "vitest";
 import Styles from "./Cart.module.css";
+const API_URL = import.meta.env.VITE_BASE_API_URL;
 
 function Cart({ shoppingCart, setShoppingCart }) {
   console.log("SHOPPINGCART:", shoppingCart);
@@ -15,7 +16,7 @@ function Cart({ shoppingCart, setShoppingCart }) {
       total: total,
     };
 
-    fetch("http://localhost:3001/orders", {
+    fetch(`${API_URL}/orders`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

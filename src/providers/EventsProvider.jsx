@@ -1,6 +1,7 @@
 import { type } from "@testing-library/user-event/dist/cjs/utility/type.js";
 import { createContext, useContext, useEffect, useReducer } from "react";
 import { useNavigate } from "react-router-dom";
+const API_URL = import.meta.env.VITE_BASE_API_URL;
 
 const EventsContext = createContext(null);
 
@@ -33,11 +34,10 @@ function EventsProvider({ children }) {
   // get inital events, visits and shop data.
   useEffect(() => {
     getEvents();
-    console.log("From provider::", eventState);
   }, []);
 
   function getEvents() {
-    fetch("http://localhost:3001/events")
+    fetch(`${API_URL}/events`)
       .then((res) => {
         eventsDispatch({ type: "FETCH_INIT", payload: true });
         if (!res.ok) {
@@ -53,7 +53,7 @@ function EventsProvider({ children }) {
 
   function addEvents(event) {
     eventsDispatch({ type: "FETCH_INIT", payload: true });
-    fetch("http://localhost:3001/events", {
+    fetch(`${API_URL}/events`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(event),
@@ -79,7 +79,7 @@ function EventsProvider({ children }) {
   function editEvent(event) {
     eventsDispatch({ type: "FETCH_INIT", payload: true });
 
-    fetch(`http://localhost:3001/events/${event.id}`, {
+    fetch(`${API_URL}/events/${event.id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(event),
@@ -107,7 +107,7 @@ function EventsProvider({ children }) {
 
   function deleteEvent(id) {
     eventsDispatch({ type: "FETCH_INIT", payload: true });
-    fetch(`http://localhost:3001/events/${id}`, {
+    fetch(`${API_URL}/events/${id}`, {
       method: "DELETE",
     })
       .then((res) => {

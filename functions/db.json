@@ -11,19 +11,19 @@
       {
         "id": 2,
         "name": "Merlot",
-        "price": 1500,
+        "price": 15,
         "image": "https://chizay.com/wp-content/uploads/2018/08/Merlot_2019-3.jpg"
       },
       {
         "id": 3,
         "name": "Shiraz",
-        "price": 1800,
+        "price": 18,
         "image": "https://edenvale.com.au/cdn/shop/articles/Australian_Shiraz_and_Food_Pairing.webp?v=1707318563&width=1100"
       },
       {
         "id": 4,
         "name": "Chardonnay",
-        "price": 1600,
+        "price": 16,
         "image": "https://images.commerce7.com/jordan-vineyard-and-winery/images/x-large/jordan_detail_2022_chardonnay_stem_oysters-1717097658707.png"
       }
     ],
@@ -140,14 +140,5 @@
       "id": "vKxgq2eu0hk"
     }
   ],
-  "events": [
-    {
-      "title": "The children of dionysus",
-      "description": "Wine and picnic under the sun overlooking our vineyard. Get a complimentary bottle (10yr) and a selection of cheese slices.",
-      "imageUrl": "https://images.unsplash.com/photo-1504279577054-acfeccf8fc52?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "date": "2026-08-26T12:32",
-      "id": "POtXhCNfTNg"
-    }
-  ],
-  "$schema": "./node_modules/json-server/schema.json"
+  "events": []
 }

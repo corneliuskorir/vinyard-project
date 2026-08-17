@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
 import { data } from "react-router-dom";
+const API_URL = import.meta.env.VITE_BASE_API_URL;
 
 const VisitsContext = createContext(null);
 
@@ -38,7 +39,7 @@ function VisitsProvider({ children }) {
   }, []);
 
   function getVisits() {
-    fetch("http://localhost:3001/visits")
+    fetch(`${API_URL}/visits`)
       .then((res) => {
         if (!res.ok) {
           throw new Error(`Failed to fetch visits: ${res.status}`);
@@ -53,7 +54,7 @@ function VisitsProvider({ children }) {
 
   function addVisit(visit) {
     visitsDispatch({ type: "FETCH_INIT", payload: true });
-    fetch("http://localhost:3001/visits", {
+    fetch(`${API_URL}/visits`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(visit),
@@ -77,7 +78,7 @@ function VisitsProvider({ children }) {
 
   function deleteVisit(id) {
     visitsDispatch({ type: "FETCH_INIT", payload: true });
-    fetch(`http://localhost:3001/visits/${id}`, {
+    fetch(`${API_URL}/visits/${id}`, {
       method: "DELETE",
     })
       .then((res) => {
