@@ -42,6 +42,9 @@ function DashboardLayout() {
               <NavLink to="/dashboard/users" className={linkStyle}>
                 Users
               </NavLink>
+              <NavLink to="/" className={linkStyle}>
+                Back to Website
+              </NavLink>
             </nav>
           </div>
         </div>
