@@ -6,15 +6,15 @@ import "../components/MainLayout.css";
 
 function MainLayout() {
   return (
-    <>
+    <div className="layout">
       <Header />
-      <div className="main-content">
-        <VisitsProvider>
+      <VisitsProvider>
+        <main className="main-content">
           <Outlet />
-        </VisitsProvider>
-        <Footer />
-      </div>
-    </>
+        </main>
+      </VisitsProvider>
+      <Footer />
+    </div>
   );
 }
 
