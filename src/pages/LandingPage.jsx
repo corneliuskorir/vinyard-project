@@ -21,7 +21,7 @@ function LandingPage() {
       setTimeout(() => {
         setIndex((prev) => (prev + 1) % videos.length); // switch source
         setFade(false); // fade back in
-      }, 1000); // fade duration
+      }, 500); // fade duration
     }, 10000); // change every 10s
     return () => clearInterval(interval);
   }, []);
