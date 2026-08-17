@@ -1,5 +1,15 @@
 {
-  "users": [],
+  "users": [
+    {
+      "firstName": "Harry ",
+      "lastName": "ponyo",
+      "email": "Potter@hogwarts.com",
+      "userName": "DarkKnight",
+      "password": "12345678",
+      "admin": true,
+      "id": "ZR3xoU96xG4"
+    }
+  ],
   "products": {
     "wines": [
       {
@@ -90,142 +100,14 @@
         {
           "id": 1,
           "name": "Cabernet",
-          "price": 20,
+          "price": 2500,
           "image": "https://cdn.prod.website-files.com/66046fe6dc39fafe5e90d16a/679f91a26fc515e0dac5e874_Cabernet-Sauvignon-Comparison.webp"
         },
         {
           "id": 2,
           "name": "Merlot",
-          "price": 15,
+          "price": 1500,
           "image": "https://chizay.com/wp-content/uploads/2018/08/Merlot_2019-3.jpg"
-        },
-        {
-          "id": 3,
-          "name": "Shiraz",
-          "price": 18,
-          "image": "https://edenvale.com.au/cdn/shop/articles/Australian_Shiraz_and_Food_Pairing.webp?v=1707318563&width=1100"
-        },
-        {
-          "id": 7,
-          "name": "Gouda",
-          "price": 14,
-          "image": "https://cdn2.bigcommerce.com/server5900/ohhf8/product_images/uploaded_images/gouda.jpg"
-        },
-        {
-          "id": 8,
-          "name": "Parmesan",
-          "price": 13,
-          "image": "https://cdn.smithbrothersfarms.com/media/0011332_belgioioso-parmesan-cheese-wedge-8-oz.jpeg"
-        }
-      ],
-      "total": 80,
-      "id": "WqY_lnqQFN0"
-    },
-    {
-      "items": [
-        {
-          "id": 1,
-          "name": "Cabernet",
-          "price": 20,
-          "image": "https://cdn.prod.website-files.com/66046fe6dc39fafe5e90d16a/679f91a26fc515e0dac5e874_Cabernet-Sauvignon-Comparison.webp"
-        },
-        {
-          "id": 2,
-          "name": "Merlot",
-          "price": 15,
-          "image": "https://chizay.com/wp-content/uploads/2018/08/Merlot_2019-3.jpg"
-        }
-      ],
-      "total": 35,
-      "id": "vKxgq2eu0hk"
-    },
-    {
-      "items": [],
-      "total": 0,
-      "customer": {
-        "name": "Harry Salim",
-        "email": "harry.salim@student.moringaschool.com",
-        "phone": "0758622784",
-        "address": "Home",
-        "notes": "leave at door"
-      },
-      "id": "8LTZ6GVc6cQ"
-    },
-    {
-      "items": [
-        {
-          "id": 4,
-          "name": "Chardonnay",
-          "price": 1600,
-          "image": "https://images.commerce7.com/jordan-vineyard-and-winery/images/x-large/jordan_detail_2022_chardonnay_stem_oysters-1717097658707.png"
-        },
-        {
-          "id": 3,
-          "name": "Shiraz",
-          "price": 1800,
-          "image": "https://edenvale.com.au/cdn/shop/articles/Australian_Shiraz_and_Food_Pairing.webp?v=1707318563&width=1100"
-        },
-        {
-          "id": 7,
-          "name": "Gouda",
-          "price": 14,
-          "image": "https://cdn2.bigcommerce.com/server5900/ohhf8/product_images/uploaded_images/gouda.jpg"
-        }
-      ],
-      "total": 3414,
-      "customer": {
-        "name": "Harry",
-        "email": "Potter@hogwarts.com",
-        "phone": "0758622784",
-        "address": "Gryffindoor",
-        "notes": "hagrid will collect"
-      },
-      "id": "GZABRP2CtH4"
-    },
-    {
-      "items": [
-        {
-          "id": 4,
-          "name": "Chardonnay",
-          "price": 1600,
-          "image": "https://images.commerce7.com/jordan-vineyard-and-winery/images/x-large/jordan_detail_2022_chardonnay_stem_oysters-1717097658707.png"
-        },
-        {
-          "id": 3,
-          "name": "Shiraz",
-          "price": 1800,
-          "image": "https://edenvale.com.au/cdn/shop/articles/Australian_Shiraz_and_Food_Pairing.webp?v=1707318563&width=1100"
-        },
-        {
-          "id": 7,
-          "name": "Gouda",
-          "price": 14,
-          "image": "https://cdn2.bigcommerce.com/server5900/ohhf8/product_images/uploaded_images/gouda.jpg"
-        },
-        {
-          "id": 7,
-          "name": "Gouda",
-          "price": 14,
-          "image": "https://cdn2.bigcommerce.com/server5900/ohhf8/product_images/uploaded_images/gouda.jpg"
-        }
-      ],
-      "total": 3428,
-      "customer": {
-        "name": "joj",
-        "email": "joj@home.now",
-        "phone": "0700070007",
-        "address": "Turbotales",
-        "notes": "call me"
-      },
-      "id": "Q9uui2KJwP8"
-    },
-    {
-      "items": [
-        {
-          "id": 7,
-          "name": "Gouda",
-          "price": 14,
-          "image": "https://cdn2.bigcommerce.com/server5900/ohhf8/product_images/uploaded_images/gouda.jpg"
         },
         {
           "id": 6,
@@ -234,21 +116,21 @@
           "image": "https://substackcdn.com/image/fetch/$s_!JFZP!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F8583fc54-9859-4476-bcbd-ad53b71f90ee_1600x1064.jpeg"
         },
         {
-          "id": 5,
-          "name": "Cheddar",
-          "price": 10,
-          "image": "https://upload.wikimedia.org/wikipedia/commons/b/bf/White_cheddar_cheese.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"
+          "id": 7,
+          "name": "Gouda",
+          "price": 14,
+          "image": "https://cdn2.bigcommerce.com/server5900/ohhf8/product_images/uploaded_images/gouda.jpg"
         }
       ],
-      "total": 36,
+      "total": 4026,
       "customer": {
-        "name": "Harry Salim",
-        "email": "harry.salim@student.moringaschool.com",
+        "name": "Harry",
+        "email": "Potter@hogwarts.com",
         "phone": "0700070007",
         "address": "Gryffindoor",
         "notes": "hagrid will collect"
       },
-      "id": "b9H--esZFVs"
+      "id": "-bBD5xBnPEA"
     }
   ],
   "events": [

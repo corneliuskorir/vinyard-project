@@ -1,0 +1,102 @@
+.ordersPage {
+  padding: 2rem;
+  color: #5c5875;
+}
+
+.ordersPage h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.ordersList {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.orderCard {
+  background: #fffaf2;
+  border: 1px solid #ddd2c2;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.orderHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid #ddd2c2;
+}
+
+.orderHeader h3 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.total {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.customer {
+  margin-bottom: 1.5rem;
+}
+
+.customer h4,
+.items h4 {
+  margin-bottom: 0.7rem;
+  font-size: 1.05rem;
+}
+
+.customer p {
+  margin: 0.35rem 0;
+}
+
+.items {
+  border-top: 1px solid #ddd2c2;
+  padding-top: 1rem;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid #eee5d9;
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.itemName {
+  font-weight: 500;
+}
+
+.itemPrice {
+  font-weight: 600;
+}
+
+.empty {
+  padding: 2rem;
+  text-align: center;
+  background: #fffaf2;
+  border-radius: 10px;
+}
+
+@media (max-width: 700px) {
+  .ordersPage {
+    padding: 1rem;
+  }
+
+  .orderHeader {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .item {
+    gap: 1rem;
+  }
+}
