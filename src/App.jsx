@@ -19,6 +19,8 @@ import "./App.css";
 import BookVisitForm from "./components/BookVisitForm";
 import VisitsList from "./pages/dashboard/VisitsList";
 import Events from "./pages/Events";
+
+const API_URL = import.meta.env.VITE_BASE_API_URL;
 function App() {
   const [products, setProducts] = useState({
     wines: [],
@@ -28,7 +30,7 @@ function App() {
   const [shoppingCart, setShoppingCart] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3001/products/")
+    fetch(`${API_URL}/products/`)
       .then((response) => response.json())
       .then((data) => {
         console.log("GET DATA:", data);

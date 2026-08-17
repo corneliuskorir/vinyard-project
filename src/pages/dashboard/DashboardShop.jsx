@@ -1,6 +1,7 @@
 import { da, id } from "date-fns/locale";
 import { use, useState } from "react";
 import styles from "./DashboardShop.module.css";
+const API_URL = import.meta.env.VITE_BASE_API_URL;
 
 function DashboardShop({ products, setProducts }) {
   const [formData, setFormData] = useState({
@@ -39,7 +40,7 @@ function DashboardShop({ products, setProducts }) {
 
     setProducts(updatedProducts);
 
-    fetch("http://localhost:3001/products", {
+    fetch(`${API_URL}/products`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -82,7 +83,7 @@ function DashboardShop({ products, setProducts }) {
 
     setProducts(updatedProducts);
 
-    fetch("http://localhost:3001/products", {
+    fetch(`${API_URL}/products`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
