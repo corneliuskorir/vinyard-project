@@ -11,19 +11,19 @@
       {
         "id": 2,
         "name": "Merlot",
-        "price": 15,
+        "price": 1500,
         "image": "https://chizay.com/wp-content/uploads/2018/08/Merlot_2019-3.jpg"
       },
       {
         "id": 3,
         "name": "Shiraz",
-        "price": 18,
+        "price": 1800,
         "image": "https://edenvale.com.au/cdn/shop/articles/Australian_Shiraz_and_Food_Pairing.webp?v=1707318563&width=1100"
       },
       {
         "id": 4,
         "name": "Chardonnay",
-        "price": 16,
+        "price": 1600,
         "image": "https://images.commerce7.com/jordan-vineyard-and-winery/images/x-large/jordan_detail_2022_chardonnay_stem_oysters-1717097658707.png"
       }
     ],

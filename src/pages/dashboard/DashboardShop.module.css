@@ -135,17 +135,19 @@
 .editButton,
 .saveButton {
   padding: 8px 14px;
-  border: none;
+  border: 1px solid #ccc;
   border-radius: 5px;
   cursor: pointer;
 }
 
 .editButton {
   background: black;
+  color: white;
 }
 
 .editButton:hover {
-  background: #ddd;
+  background: #333;
+  color: white;
 }
 
 .saveButton {
