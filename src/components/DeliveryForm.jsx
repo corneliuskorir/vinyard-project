@@ -3,9 +3,13 @@ import FormInput from "../components/FormInput";
 import useFormData from "../hooks/useFormData";
 
 import { useRef, useState } from "react";
-import { useVisits } from "../providers/VisitsProvider";
 
-function DeliveryForm() {
+import { useOrders } from "../providers/OrdersProvider";
+
+function DeliveryForm({ shoppingCart, setShoppingCart }) {
+  const { ordersState, addOrder } = useOrders();
+  const { loading } = ordersState;
+
   const nameRef = useRef();
   const emailRef = useRef();
   const phoneRef = useRef();
@@ -15,8 +19,7 @@ function DeliveryForm() {
 
   const [showSuccess, setShowSuccess] = useState(false);
 
-  const { visitsState, addVisit } = useVisits();
-  const { loading, error } = visitsState;
+  const total = shoppingCart.reduce((sum, product) => sum + product.price, 0);
 
   const defaultData = {
     name: "",
@@ -61,18 +64,30 @@ function DeliveryForm() {
       return;
     }
 
-    addVisit(formData);
-    if (!error || !loading) {
-      setFormData(defaultData);
-      setShowSuccess(true);
-      successRef.current.scrollIntoView({
-        behaviour: "smooth",
-        block: "end",
+    const order = {
+      items: shoppingCart,
+      total: total,
+      customer: formData,
+    };
+
+    addOrder(order)
+      .then(() => {
+        setFormData(defaultData);
+        setShoppingCart([]);
+        setShowSuccess(true);
+
+        successRef.current?.scrollIntoView({
+          behavior: "smooth",
+          block: "end",
+        });
+
+        setTimeout(() => {
+          setShowSuccess(false);
+        }, 5000);
+      })
+      .catch((error) => {
+        console.error("Failed to create order", error);
       });
-      setTimeout(() => {
-        setShowSuccess(false);
-      }, 5000);
-    }
   }
 
   return loading ? (
@@ -131,7 +146,7 @@ function DeliveryForm() {
 
       {showSuccess && (
         <div className="success" ref={successRef}>
-          <p>Thank you for providing your delivery details.</p>
+          <p>Your order has been confirmed</p>
           <p>Our team will contact you shortly to confirm your order.</p>
         </div>
       )}

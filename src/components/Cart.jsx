@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { it } from "vitest";
 import Styles from "./Cart.module.css";
+import { useNavigate } from "react-router-dom";
 const API_URL = import.meta.env.VITE_BASE_API_URL;
 
 function Cart({ shoppingCart, setShoppingCart }) {
+  const navigate = useNavigate();
+
   console.log("SHOPPINGCART:", shoppingCart);
 
   const total = shoppingCart.reduce((sum, product) => sum + product.price, 0);
@@ -11,6 +14,10 @@ function Cart({ shoppingCart, setShoppingCart }) {
   const [orderConfirmed, setOrderConfirmed] = useState(false);
 
   function handleCheckOut() {
+    navigate("/delivery");
+  }
+
+  /*function handleCheckOut() {
     const order = {
       items: shoppingCart,
       total: total,
@@ -36,7 +43,7 @@ function Cart({ shoppingCart, setShoppingCart }) {
         setShoppingCart([]);
         setOrderConfirmed(true);
       });
-  }
+  } */
 
   if (orderConfirmed) {
     return (

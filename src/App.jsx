@@ -19,9 +19,14 @@ import "./App.css";
 import BookVisitForm from "./components/BookVisitForm";
 import VisitsList from "./pages/dashboard/VisitsList";
 import Events from "./pages/Events";
+
 import { AuthProvider } from "./providers/AuthProvider";
 import Authentication from "./pages/Authentication";
 import UserManagement from "./pages/dashboard/UserManagement";
+
+import { OrdersProvider } from "./providers/OrdersProvider";
+import DeliveryForm from "./components/DeliveryForm";
+import DashboardOrders from "./pages/dashboard/DashboardOrders";
 
 const API_URL = import.meta.env.VITE_BASE_API_URL;
 function App() {
@@ -44,54 +49,74 @@ function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<MainLayout />}>
-            <Route index element={<LandingPage />} />
-            <Route path="about" element={<About />} />
-            <Route path="events" element={<Events />} />
-            <Route
-              path="/shop"
-              element={
-                <Shop
-                  products={products}
-                  setShoppingCart={setShoppingCart}
-                  shoppingCart={shoppingCart}
-                />
-              }
-            />
+        <OrdersProvider>
+          <Routes>
+            <Route path="/" element={<MainLayout />}>
+              <Route index element={<LandingPage />} />
+              <Route path="about" element={<About />} />
+              <Route path="events" element={<Events />} />
+              <Route
+                path="/shop"
+                element={
+                  <Shop
+                    products={products}
+                    setShoppingCart={setShoppingCart}
+                    shoppingCart={shoppingCart}
+                  />
+                }
+              />
 
-            <Route
-              path="cart"
-              element={
-                <Cart
-                  shoppingCart={shoppingCart}
-                  setShoppingCart={setShoppingCart}
-                />
-              }
-            />
-            <Route path="/book-visit" element={<BookVisitForm />} />
-          </Route>
-          <Route path="/authenticate" element={<Authentication />} />
+              <Route
+                path="cart"
+                element={
+                  <Cart
+                    shoppingCart={shoppingCart}
+                    setShoppingCart={setShoppingCart}
+                  />
+                }
+              />
 
-          <Route path="/dashboard" element={<DashboardLayout />}>
-            <Route index element={<DashboardSummary />} />
-            <Route
-              path="Shop"
-              element={
-                <DashboardShop products={products} setProducts={setProducts} />
-              }
-            ></Route>
-            <Route path="visits" element={<DashboardVisits />}>
-              <Route index element={<VisitsList />} />
+              <Route
+                path="delivery"
+                element={
+                  <DeliveryForm
+                    shoppingCart={shoppingCart}
+                    setShoppingCart={setShoppingCart}
+                  />
+                }
+              />
+
+              <Route path="/book-visit" element={<BookVisitForm />} />
             </Route>
-            <Route path="events" element={<DashboardEvents />}>
-              <Route index element={<DashboardEventsList />} />
-              <Route path="new" element={<EventForm />} />
-              <Route path=":eventId" element={<EventForm />} />
+            <Route path="/authenticate" element={<Authentication />} />
+
+            <Route path="/dashboard" element={<DashboardLayout />}>
+              <Route index element={<DashboardSummary />} />
+              <Route
+                path="Shop"
+                element={
+                  <DashboardShop
+                    products={products}
+                    setProducts={setProducts}
+                  />
+                }
+              />
+
+              <Route path="orders" element={<DashboardOrders />} />
+
+              <Route path="visits" element={<DashboardVisits />}>
+                <Route index element={<VisitsList />} />
+              </Route>
+              <Route path="events" element={<DashboardEvents />}>
+                <Route index element={<DashboardEventsList />} />
+                <Route path="new" element={<EventForm />} />
+                <Route path=":eventId" element={<EventForm />} />
+              </Route>
+
+              <Route path="users" element={<UserManagement />}></Route>
             </Route>
-            <Route path="users" element={<UserManagement />}></Route>
-          </Route>
-        </Routes>
+          </Routes>
+        </OrdersProvider>
       </BrowserRouter>
     </AuthProvider>
   );
